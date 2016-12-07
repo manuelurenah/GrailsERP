@@ -50,7 +50,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'default.created.message', args: [message(code: 'user.label', default: 'User'), user])
                 redirect user
             }
             '*' { respond user, [status: CREATED] }
@@ -82,7 +82,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'user.label', default: 'User'), user])
                 redirect user
             }
             '*'{ respond user, [status: OK] }
@@ -107,7 +107,7 @@ class UserController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), user.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'user.label', default: 'User'), user])
                 redirect action:"index", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
