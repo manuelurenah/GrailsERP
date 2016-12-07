@@ -8,6 +8,31 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
 }
 
+body {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#site-header .navbar {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+}
+
+#site-main {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#site-footer {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 12px;
+    background: #222;
+    color: #999;
+}
+
 /* BASE LAYOUT */
 
 html {
