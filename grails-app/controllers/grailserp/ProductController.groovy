@@ -9,7 +9,7 @@ class ProductController {
         [productList: products, productCount: Product.count()]
     }
 
-    def create = {}
+    def create = { }
 
     def save = {
         Product product = new Product(params)

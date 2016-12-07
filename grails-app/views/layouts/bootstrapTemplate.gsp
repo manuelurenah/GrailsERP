@@ -45,7 +45,7 @@
                                 <li><g:link controller="department" action="index">Departments</g:link></li>
                                 <li><g:link controller="user" action="index">Users</g:link></li>
                             </g:if>
-                            <li><g:link controller="contact" action="index">Products</g:link></li>
+                            <li><g:link controller="product" action="index">Products</g:link></li>
                             <li><g:link controller="user" action="logout">Logout</g:link></li>
                         </g:if>
                         <g:else>

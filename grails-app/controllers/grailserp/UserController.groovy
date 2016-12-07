@@ -14,7 +14,7 @@ class UserController {
     }
 
     def processLogin(String email, String password) {
-        User currentUser = User.findByEmailAndPassword(email, password)
+        def currentUser = User.findByEmailAndPassword(email, password)
         if (currentUser == null) {
             flash.error = "El usuario con el que intenta autenticarse no existe."
             redirect action: "login"

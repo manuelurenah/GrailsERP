@@ -47,7 +47,6 @@ dependencies {
     compile "org.hibernate:hibernate-ehcache:5.1.1.Final"
     compile 'org.grails.plugins:grails-google-visualization:2.2'
     console "org.grails:grails-console"
-    compile "org.grails.plugins:spring-security-rest:2.0.0.M2"
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.1"
     runtime "com.h2database:h2"
