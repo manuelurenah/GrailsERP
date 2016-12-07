@@ -2,9 +2,7 @@
   <artifact type="exploded-war" name="Gradle : grailserp : GrailsERP-0.1.war (exploded)">
     <output-path>$PROJECT_DIR$/build/libs/exploded/GrailsERP-0.1.war</output-path>
     <properties id="gradle-properties">
-      <options external-project-path="$PROJECT_DIR$">
-        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
-      </options>
+      <options external-project-path="$PROJECT_DIR$" />
     </properties>
     <root id="root">
       <element id="directory" name="META-INF">

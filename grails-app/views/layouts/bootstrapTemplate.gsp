@@ -60,6 +60,9 @@
         <!-- Page Body -->
         <main id="site-main">
             <div class="container-fluid">
+                <g:pageProperty name="page.banner"/>
+            </div>
+            <div class="container">
                 <g:pageProperty name="page.body"/>
             </div>
             <!-- /.container-fluid -->

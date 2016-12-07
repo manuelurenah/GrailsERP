@@ -1,8 +1,12 @@
 <g:applyLayout name="bootstrapTemplate">
-    <content tag="body">
+    <content tag="banner">
         <div class="jumbotron text-center">
             <h1>Grails ERP</h1>
-            <h4>Welcome!</h4>
+            <hr>
+            <h3>Welcome!</h3>
         </div>
+    </content>
+    <content tag="body">
+
     </content>
 </g:applyLayout>

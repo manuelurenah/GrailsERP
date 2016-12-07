@@ -1,9 +1,10 @@
 <g:applyLayout name="bootstrapTemplate">
-    <content tag="body">
+    <content tag="banner">
         <div class="jumbotron text-center">
             <h1>Login</h1>
         </div>
-
+    </content>
+    <content tag="body">
         <g:if test="${flash.error}">
             <div class="alert alert-danger">
                 ${flash.error}

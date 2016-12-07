@@ -1,9 +1,11 @@
 <%@ page import="grailserp.Department" %>
 <g:applyLayout name="bootstrapTemplate">
-    <content tag="body">
+    <content tag="banner">
         <div class="jumbotron text-center">
             <h1>New User</h1>
         </div>
+    </content>
+    <content tag="body">
 
         <div id="create-user" class="row" role="main">
             <g:if test="${flash.message}">
@@ -48,8 +50,14 @@
                         <input type="checkbox" name="isAdmin" value="" /> Administrator
                     </label>
                 </div>
-                <g:submitButton name="create" class="btn btn-lg btn-success" value="Save" />
-                <g:link class="btn btn-lg btn-danger" action="index">Cancel</g:link>
+                <div class="col-xs-6">
+                    <g:submitButton name="create" class="btn btn-block btn-success" value="Save" />
+                </div>
+
+                <div class="col-xs-6">
+                    <g:link class="btn btn-block btn-danger" action="index">Cancel</g:link>
+                </div>
+
             </g:form>
         </div>
     </content>
