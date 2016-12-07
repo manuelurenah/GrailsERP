@@ -9,11 +9,11 @@
     </content>
     <content tag="body">
 
-        <div id="create-user" class="row" role="main">
+        <div id="edit-product" class="row" role="main">
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${this.user}">
+            <g:hasErrors bean="${this.product}">
                 <ul class="errors" role="alert">
                     <g:eachError bean="${this.product}" var="error">
                         <li <g:if test="${error in org.springframework.validation.FieldError}">data-field-id="${error.field}"</g:if>>

@@ -8,7 +8,7 @@
         </div>
     </content>
     <content tag="body">
-        <div id="create-user" class="row" role="main">
+        <div id="edit-user" class="row" role="main">
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
