@@ -36,16 +36,26 @@
                     <input type="password" class="form-control" name="password" id="password" value="${user.password}" />
                 </div>
                 <div class="form-group">
+                    <label for="userType">User Type: </label>
+                    <g:select class="form-control"
+                              name="userType"
+                              from="${['Jurídico', 'Consumidor Final']}"
+                              value="${user.userType}" />
+                </div>
+                <div class="form-group">
                     <label for="department">Department: </label>
-                    <select class="form-control" name="department" id="department">
-                        <g:each var="dept" in="${Department.list()}">
-                            <option <g:if test="${user.department}">selected</g:if>>${dept}</option>
-                        </g:each>
-                    </select>
+                    <g:select class="form-control"
+                              name="department"
+                              from="${Department.list()}"
+                              optionKey="id"
+                              value="${user.department.id}" />
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="isAdmin" value="" /> Administrator
+                        <g:checkBox class="checkbox"
+                                    name="isAdmin"
+                                    optionKey="id"
+                                    value="${user.isAdmin}" /> Administrador
                     </label>
                 </div>
                 <g:submitButton name="create" class="btn btn-lg btn-success" value="Save" />

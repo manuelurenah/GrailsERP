@@ -36,16 +36,26 @@
                     <input type="password" class="form-control" name="password" id="password" />
                 </div>
                 <div class="form-group">
-                    <label for="department">Department: </label>
-                    <select class="form-control" name="department" id="department">
-                        <g:each var="dept" in="${Department.list()}">
-                            <option>${dept}</option>
-                        </g:each>
+                    <label for="userType">User Type: </label>
+                    <select class="form-control" name="userType" id="userType">
+                        <option>Jurídico</option>
+                        <option>Consumidor Final</option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department: </label>
+                    <g:select class="form-control"
+                              name="department"
+                              from="${Department.list()}"
+                              optionKey="id"
+                              value="" />
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="isAdmin" value="" /> Administrator
+                        <g:checkBox class="checkbox"
+                                    name="isAdmin"
+                                    optionKey="id"
+                                    value="" /> Administrador
                     </label>
                 </div>
                 <g:submitButton name="create" class="btn btn-lg btn-success" value="Save" />
