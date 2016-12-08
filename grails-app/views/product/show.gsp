@@ -2,9 +2,11 @@
     <content tag="body">
         <div id="show-user" class="content scaffold-show" role="main">
             <h1>Product Fields</h1>
-            <g:link class="btn btn-warning pull-right" action="index">
-                <g:message code="default.button.back.label" default="Back" />
-            </g:link>
+            <div class="row">
+                <g:link class="btn btn-warning pull-right " action="index">
+                    <g:message code="default.button.back.label" default="Back" />
+                </g:link>
+            </div>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>

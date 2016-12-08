@@ -5,7 +5,7 @@ import static org.springframework.http.HttpStatus.*
 class ProductController {
 
     def index = {
-        List<Product> products = Product.list()
+        List<Product> products = Product.list(params)
         [productList: products, productCount: Product.count()]
     }
 

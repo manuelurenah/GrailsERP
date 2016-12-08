@@ -22,7 +22,7 @@
                     <f:table collection="${productList}" />
 
                     <div class="pagination">
-                        <g:paginate total="${productCount ?: 0}" />
+                        <g:paginate controller="product" action="index" total="${productCount?:0}" />
                     </div>
                 </div>
             </div>
