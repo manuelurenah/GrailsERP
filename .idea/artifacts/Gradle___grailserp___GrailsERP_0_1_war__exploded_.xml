@@ -1,10 +1,15 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Gradle : grailserp : GrailsERP-0.1.war (exploded)">
-    <output-path>$PROJECT_DIR$/out/artifacts/GrailsERP/exploded/GrailsERP-0.1.war</output-path>
+    <output-path>$PROJECT_DIR$/build/libs/exploded/GrailsERP-0.1.war</output-path>
     <properties id="gradle-properties">
-      <options external-project-path="$PROJECT_DIR$" />
+      <options external-project-path="$PROJECT_DIR$">
+        <manifest>TWFuaWZlc3QtVmVyc2lvbjogMS4wDQoNCg==</manifest>
+      </options>
     </properties>
     <root id="root">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/GrailsERP-0.1.war/META-INF/MANIFEST.MF" />
+      </element>
       <element id="javaee-facet-resources" facet="GrailsERP_main/web/Web Gradle : GrailsERP-0.1.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -104,6 +109,8 @@
           <element id="library" level="project" name="Gradle: org.grails:grails-datastore-gorm-hibernate-core:6.0.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-validator:5.2.4.Final" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.3.RELEASE" />
+          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
+          <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.8.3" />
           <element id="library" level="project" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.3" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.3.3.RELEASE" />
@@ -140,11 +147,11 @@
           <element id="library" level="project" name="Gradle: io.projectreactor:reactor-core:2.0.8.RELEASE" />
           <element id="library" level="project" name="Gradle: io.projectreactor:reactor-stream:2.0.8.RELEASE" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.5" />
-          <element id="library" level="project" name="Gradle: commons-codec:commons-codec:1.10" />
           <element id="library" level="project" name="Gradle: io.projectreactor.spring:reactor-spring-core:2.0.7.RELEASE" />
           <element id="library" level="project" name="Gradle: com.google.javascript:closure-compiler-externs:v20160713" />
           <element id="library" level="project" name="Gradle: com.goldmansachs:gs-collections:5.1.0" />
           <element id="library" level="project" name="Gradle: args4j:args4j:2.0.26" />
+<<<<<<< HEAD
           <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Gradle: org.codehaus.jsr166-mirror:jsr166y:1.7.0" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:19.0" />
@@ -156,10 +163,15 @@
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/4.1.3.RELEASE/e6e5b9a52c887484e61069d836520228ddb9b545/spring-security-core-4.1.3.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-web/4.1.3.RELEASE/21d7c95a1f72189cd40ac5caf11357af7ba90508/spring-security-web-4.1.3.RELEASE.jar" />
           <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" />
+=======
+          <element id="library" level="project" name="Gradle: org.codehaus.jsr166-mirror:jsr166y:1.7.0" />
+          <element id="library" level="project" name="Gradle: org.reactivestreams:reactive-streams:1.0.0" />
+          <element id="library" level="project" name="Gradle: com.google.guava:guava:19.0" />
+          <element id="library" level="project" name="Gradle: com.goldmansachs:gs-collections-api:5.1.0" />
+          <element id="library" level="project" name="Gradle: com.google.protobuf:protobuf-java:2.5.0" />
+          <element id="library" level="project" name="Gradle: com.google.code.findbugs:jsr305:1.3.9" />
+>>>>>>> 8f160a26fdcc334d915617855a038952ce19ab38
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/GrailsERP/exploded/GrailsERP-0.1.war/META-INF/MANIFEST.MF" />
       </element>
     </root>
   </artifact>

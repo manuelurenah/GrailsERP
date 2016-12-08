@@ -65,8 +65,8 @@ $(document).ready(function() {
                     productContainer.find('.product-title').append(product.title);
                     productContainer.find('.product-price').append('$ ' + product.price);
                     productContainer.find('.product-description').append(product.description);
-                    // var img = productContainer.find('.img-responsive');
-                    // img.attr("src",product.path);
+                    var img = productContainer.find('.img-responsive');
+                    img.attr("src", "/product/render_image/" + product.id);
 
                     return productContainer;
                 },
