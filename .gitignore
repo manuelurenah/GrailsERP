@@ -53,7 +53,7 @@
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
-.idea/artifacts/
+.idea/artifacts/*
 # Gradle:
 .idea/gradle.xml
 .idea/libraries
