@@ -19,18 +19,20 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <exa:datatable id="productTable" items="${productList}"
-                                   hidden="dateCreated,description,lastUpdated,productImage,imageType"
-                                   reorder="id,title,price,quantity">
-                        <exa:customHeader name="id" value="Identifier"/>
-                        <exa:customHeader name="title" value="Title"/>
-                        <exa:customHeader name="price" value="Price"/>
-                        <exa:customHeader name="quantity" value="Quantity"/>
-                        <exa:customColumn name="title">
-                            <a href="${createLink(controller: "product", action:"show", id: it.id)}">${it.title}</a>
-                        </exa:customColumn>
+                    <g:if test="${productList && productList.size() > 0}">
+                        <exa:datatable id="productTable" items="${productList}"
+                                       hidden="dateCreated,description,lastUpdated,productImage,imageType"
+                                       reorder="id,title,price,quantity">
+                            <exa:customHeader name="id" value="Identifier"/>
+                            <exa:customHeader name="title" value="Title"/>
+                            <exa:customHeader name="price" value="Price"/>
+                            <exa:customHeader name="quantity" value="Quantity"/>
+                            <exa:customColumn name="title">
+                                <a href="${createLink(controller: "product", action:"show", id: it.id)}">${it.title}</a>
+                            </exa:customColumn>
 
-                    </exa:datatable>
+                        </exa:datatable>
+                    </g:if>
                 </div>
             </div>
         </div>
