@@ -26,6 +26,9 @@
                         <exa:customHeader name="title" value="Title"/>
                         <exa:customHeader name="price" value="Price"/>
                         <exa:customHeader name="quantity" value="Quantity"/>
+                        <exa:customColumn name="title">
+                            <a href="${createLink(controller: "product", action:"show", id: it.id)}">${it.title}</a>
+                        </exa:customColumn>
 
                     </exa:datatable>
                 </div>

@@ -29,6 +29,9 @@
                         <exa:customColumn name="department">
                             ${it.department}
                         </exa:customColumn>
+                        <exa:customColumn name="email">
+                            <a href="${createLink(controller: "user", action:"show", id: it.id)}">${it.email}</a>
+                        </exa:customColumn>
 
                     </exa:datatable>
                 </div>

@@ -35,32 +35,5 @@
             </g:each>
             </div>
         </g:else>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <table id="products-table" class="table table-responsive table-hover">
-                    <thead><th></th></thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-
-        <div id="product-container" hidden>
-            <div class="container">
-                <div class="row" style="padding: 8px">
-                    <div class="col-lg-3">
-                        <img class="img-responsive center-block"
-                             src="https://getuikit.com/docs/images/placeholder_600x400.svg"
-                             alt="" />
-                    </div>
-                    <div class="col-lg-9">
-                        <h2><a href="#" class="product-title"></a></h2>
-                        <h1 class="product-price"></h1>
-                        <p class="product-description"></p>
-                    </div>
-                </div>
-                <hr />
-            </div>
-        </div>
     </content>
 </g:applyLayout>
