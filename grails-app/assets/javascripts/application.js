@@ -10,6 +10,8 @@
 //= require exa-datatables
 //= require exa-datatables-bootstrap3
 //= require bootstrap
+//= require datatables.min
+//= require custom
 //= require_tree .
 //= require_self
 

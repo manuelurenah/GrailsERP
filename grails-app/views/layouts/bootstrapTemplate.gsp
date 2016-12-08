@@ -14,7 +14,7 @@
 
     <g:layoutHead/>
 
-    %{--Para incluir otras recursos.--}%
+    %{--Para incluir otros recursos.--}%
     <g:pageProperty name="page.header"/>
 
 </head>
@@ -66,6 +66,7 @@
                 <g:pageProperty name="page.banner"/>
             </div>
             <div class="container">
+                <br>    
                 <g:pageProperty name="page.body"/>
             </div>
             <!-- /.container-fluid -->

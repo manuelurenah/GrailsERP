@@ -7,7 +7,11 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
+<<<<<<< HEAD
+=======
+*= require bootstrap
 *= require datatables.min
+>>>>>>> 4e347be9f627772062dc31e2a4b7eb4da6178674
 *= require grails
 *= require main
 *= require mobile
@@ -15,6 +19,7 @@
 *= require exa-datatables-bootstrap3
 *= require_self
 */
+<<<<<<< HEAD
 
 .container-fluid {
     padding-left: 0;
@@ -60,3 +65,5 @@ h1,h2,h3,h4,h5,h6 {
 * {
     font-family: 'Cabin', sans-serif !important;
 }
+=======
+>>>>>>> 4e347be9f627772062dc31e2a4b7eb4da6178674

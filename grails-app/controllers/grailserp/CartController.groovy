@@ -3,7 +3,8 @@ package grailserp
 class CartController {
 
     def index() {
-        def user = session.currentUser
+
+        def user = User.findById(session.currentUser.id)
         [cart: user.carts]
     }
 

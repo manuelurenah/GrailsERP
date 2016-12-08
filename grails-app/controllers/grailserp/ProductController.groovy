@@ -1,5 +1,7 @@
 package grailserp
 
+import grails.converters.JSON
+
 import static org.springframework.http.HttpStatus.*
 
 class ProductController {
@@ -72,6 +74,12 @@ class ProductController {
     def show = {
         Product product = Product.get(params.id)
         [product: product]
+    }
+
+    def list = {
+        def products = Product.findAllByQuantityGreaterThan(0)
+        def data = ['aaData': products]
+        render data as JSON
     }
 
     def show_user = {

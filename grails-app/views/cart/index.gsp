@@ -5,7 +5,7 @@
         </div>
     </content>
     <content tag="body">
-        <g:if test="${!cart || cart.size == 0}">
+        <g:if test="${!cart || cart.size() == 0}">
             <div class="col-xs-12 text-center">
                 <h2>Your cart is empty. <br>Feel free to add some new products!</h2>
             </div>
@@ -19,9 +19,9 @@
                              alt="" />
                     </div>
                     <div class="col-lg-9">
-                        <h2><a href="#">${c.product.title}</a></h2>
-                        <h1>$ ${c.product.price}</h1>
-                        <p>${c.product.description}</p>
+                        <h1><a href="#">${c.product.title}</a></h1>
+                        <h2>$ ${c.product.price}</h2>
+                        <p>Quantity: ${c.quantity}</p>
                     </div>
                 </div>
                 <hr />
