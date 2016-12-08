@@ -1,19 +1,17 @@
 <g:applyLayout name="bootstrapTemplate">
     <content tag="body">
-        <div id="show-product" class="content scaffold-show" role="main">
-            <h1>Product Fields</h1>
-            <div class="row">
-                <g:link class="btn btn-warning pull-right " action="index">
-                    <g:message code="default.button.back.label" default="Back" />
-                </g:link>
-            </div>
+        <div id="show-department" class="content scaffold-show" role="main">
+            <h1>Department Fields</h1>
+            <g:link class="btn btn-warning pull-right" action="index">
+                <g:message code="default.button.back.label" default="Back" />
+            </g:link>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="product" templates="bootstrap3"/>
-            <g:form resource="${this.product}" method="DELETE">
+            <f:display bean="department" templates="bootstrap3"/>
+            <g:form resource="${this.department}" method="DELETE">
                 <div class="col-xs-6">
-                    <g:link class="btn btn-block btn-info" action="edit" resource="${this.product}">
+                    <g:link class="btn btn-block btn-info" action="edit" resource="${this.department}">
                         <g:message code="default.button.edit.label" default="Edit" />
                     </g:link>
                 </div>

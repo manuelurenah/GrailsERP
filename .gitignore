@@ -218,36 +218,3 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
-
-# Mac
-.DS_Store
-
-# iOS
-MobileApp/platforms/ios/build/
-MobileApp/platforms/ios/www/
-MobileApp/platforms/ios/cordova/console.log
-*.xcuserdatad
-
-# android
-MobileApp/platforms/android/assets/www
-MobileApp/platforms/android/bin
-MobileApp/platforms/android/gen
-MobileApp/platforms/android/local.properties
-MobileApp/platforms/android/ant-build
-MobileApp/platforms/android/ant-gen
-MobileApp/platforms/android/CordovaLib/ant-build
-MobileApp/platforms/android/CordovaLib/ant-gen
-MobileApp/platforms/android/CordovaLib/bin
-MobileApp/platforms/android/CordovaLib/gen
-MobileApp/platforms/android/CordovaLib/local.properties
-
-# wp8
-MobileApp/platforms/wp8/bin
-MobileApp/platforms/wp8/obj
-MobileApp/platforms/wp8/www
-MobileApp/platforms/wp8/.staging
-MobileApp/platforms/wp8/*.suo
-MobileApp/platforms/wp8/*.csproj.user
-
-# res
-MobileApp/resources/signing
