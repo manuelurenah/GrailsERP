@@ -9,12 +9,35 @@
 *
 *= require datatables.min
 *= require grails
-*= require main
 *= require mobile
 *= require bootstrap
 *= require exa-datatables-bootstrap3
 *= require_self
 */
+
+#site-footer {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 12px;
+    background: #222;
+    color: #999;
+    margin-top: 5em;
+}
+
+.footer {
+    background: #48802c;
+    color: #000;
+    clear: both;
+    font-size: 0.8em;
+    margin-top: 1.5em;
+    padding: 1em;
+    min-height: 1em;
+}
+
+.footer a {
+    color: #4D8618;
+}
 
 .container-fluid {
     padding-left: 0;

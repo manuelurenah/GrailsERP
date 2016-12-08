@@ -11,6 +11,7 @@
     <title><g:layoutTitle default="Grails ERP"/></title>
     <link href="https://fonts.googleapis.com/css?family=Cabin|Josefin+Sans|Merriweather+Sans" rel="stylesheet">
     <asset:stylesheet src="application.css"/>
+    <asset:javascript src="application.js" />
 
     <g:layoutHead/>
 
@@ -66,7 +67,7 @@
                 <g:pageProperty name="page.banner"/>
             </div>
             <div class="container">
-                <br>    
+                <br>
                 <g:pageProperty name="page.body"/>
             </div>
             <!-- /.container-fluid -->
@@ -90,7 +91,6 @@
     </div>
     <!-- /#wrapper -->
 
-    <asset:javascript src="application.js" />
 
 </body>
 </html>

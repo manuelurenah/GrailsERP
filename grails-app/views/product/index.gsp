@@ -19,11 +19,15 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${productList}" />
+                    <exa:datatable id="productTable" items="${productList}"
+                                   hidden="dateCreated,description,lastUpdated"
+                                    reorder="id,title,price,quantity">
+                        <exa:customHeader name="id" value="Identifier"/>
+                        <exa:customHeader name="title" value="Title"/>
+                        <exa:customHeader name="price" value="Price"/>
+                        <exa:customHeader name="quantity" value="Quantity"/>
 
-                    <div class="pagination">
-                        <g:paginate controller="product" action="index" total="${productCount?:0}" />
-                    </div>
+                    </exa:datatable>
                 </div>
             </div>
         </div>

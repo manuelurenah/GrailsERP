@@ -19,13 +19,18 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    %{--<exa:datatable id="usertable" items="${userList}" />--}%
+                    <exa:datatable id="usertable" items="${userList}"
+                                   hidden="password,carts,dateCreated,hasMany,hasOne,id,isAdmin,lastUpdated,mapping" >
+                        <exa:customHeader name="name" value="Name"/>
+                        <exa:customHeader name="lastname" value="Last Name"/>
+                        <exa:customHeader name="email" value="Email Address"/>
+                        <exa:customHeader name="userType" value="User Type"/>
+                        <exa:customHeader name="department" value="Department"/>
+                        <exa:customColumn name="department">
+                            ${it.department}
+                        </exa:customColumn>
 
-                    <f:table collection="${userList}" />
-
-                    <div class="pagination">
-                        <g:paginate total="${userCount ?: 0}" />
-                    </div>
+                    </exa:datatable>
                 </div>
             </div>
         </div>

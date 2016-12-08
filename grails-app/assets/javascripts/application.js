@@ -7,12 +7,11 @@
 //
 
 //= require jquery-2.2.0.min
-//= require exa-datatables
-//= require exa-datatables-bootstrap3
 //= require bootstrap
 //= require datatables.min
+//= require exa-datatables
+//= require exa-datatables-bootstrap3
 //= require custom
-//= require_tree .
 //= require_self
 
 if (typeof jQuery !== 'undefined') {
