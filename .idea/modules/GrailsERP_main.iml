@@ -17,9 +17,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/controllers" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/domain" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/init" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../grails-app/services" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../grails-app/taglib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../grails-app/utils" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/conf" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/i18n" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../grails-app/views" type="java-resource" />
@@ -58,6 +55,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.bertramlabs.plugins:asset-pipeline-grails:2.11.1" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:log4j-over-slf4j:1.7.21" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot:1.4.1.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: fr.exanpe.grails:exa-datatables:2.0.0" level="project" />
     <orderEntry type="library" name="Gradle: xalan:serializer:2.7.2" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy:2.4.7" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.21" level="project" />
@@ -137,9 +135,9 @@
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjrt:1.8.9" level="project" />
     <orderEntry type="library" name="Gradle: org.aspectj:aspectjweaver:1.8.9" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-gsp:3.2.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler:v20160713" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-databinding:3.2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-url-mappings:3.2.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler:v20160713" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-jsp:3.2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-mvc:3.2.2" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-sitemesh:3.2.2" level="project" />
@@ -168,16 +166,16 @@
     <orderEntry type="library" name="Gradle: io.projectreactor:reactor-stream:2.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.5" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler-externs:v20160713" level="project" />
     <orderEntry type="library" name="Gradle: io.projectreactor.spring:reactor-spring-core:2.0.7.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: args4j:args4j:2.0.26" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.javascript:closure-compiler-externs:v20160713" level="project" />
     <orderEntry type="library" name="Gradle: com.goldmansachs:gs-collections:5.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: args4j:args4j:2.0.26" level="project" />
     <orderEntry type="library" name="Gradle: commons-collections:commons-collections:3.2.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.guava:guava:19.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.protobuf:protobuf-java:2.5.0" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.jsr166-mirror:jsr166y:1.7.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.findbugs:jsr305:1.3.9" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.protobuf:protobuf-java:2.5.0" level="project" />
     <orderEntry type="library" name="Gradle: com.goldmansachs:gs-collections-api:5.1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.findbugs:jsr305:1.3.9" level="project" />
   </component>
 </module>

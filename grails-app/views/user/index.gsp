@@ -19,6 +19,8 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
+                    %{--<exa:datatable id="usertable" items="${userList}" />--}%
+
                     <f:table collection="${userList}" />
 
                     <div class="pagination">

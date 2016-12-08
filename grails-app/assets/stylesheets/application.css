@@ -7,10 +7,11 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require bootstrap
 *= require grails
 *= require main
 *= require mobile
+*= require bootstrap
+*= require exa-datatables-bootstrap3
 *= require_self
 */
 
@@ -41,4 +42,20 @@
     left:0;
     top:0;
     position: absolute;
+}
+
+body {
+    background: #ecf0f1;
+}
+
+.container {
+    background: white;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+* {
+    font-family: 'Cabin', sans-serif !important;
 }

@@ -74,6 +74,12 @@ class ProductController {
         [product: product]
     }
 
+    def show_user = {
+        Product product = Product.get(params.id)
+        def otherProducts = Product.find("from Product order by rand()", [max:4])
+        render view: "show_user", model:[others: otherProducts, product: product]
+    }
+
     def delete = {
         Product product = Product.get(params.id)
 

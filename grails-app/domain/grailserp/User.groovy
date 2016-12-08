@@ -13,6 +13,7 @@ class User {
     Date lastUpdated
 
     static hasOne = [department: Department]
+    static hasMany = [carts: Cart]
 
     static constraints = {
         name blank: false

@@ -9,7 +9,7 @@
     <meta name="author" content="">
 
     <title><g:layoutTitle default="Grails ERP"/></title>
-
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Josefin+Sans|Merriweather+Sans" rel="stylesheet">
     <asset:stylesheet src="application.css"/>
 
     <g:layoutHead/>
@@ -47,6 +47,9 @@
                             </g:if>
                             <li><g:link controller="product" action="index">Products</g:link></li>
                             <li><g:link controller="user" action="logout">Logout</g:link></li>
+                            <li class="pull-right">
+                                <g:link controller="cart" action="index" >Cart</g:link>
+                            </li>
                         </g:if>
                         <g:else>
                             <li><g:link controller="user" action="login">Login</g:link></li>

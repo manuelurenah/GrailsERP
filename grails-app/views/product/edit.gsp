@@ -22,7 +22,7 @@
                     </g:eachError>
                 </ul>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="update" id="${product.id}">
                 <div class="form-group">
                     <label for="title">Title: </label>
                     <input type="text" class="form-control" name="title" value="${product.title}" id="title" />

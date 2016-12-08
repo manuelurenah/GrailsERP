@@ -13,21 +13,27 @@
             </div>
         </g:if>
         <g:else>
+            <h1 class="text-center">Featured Products</h1>
+            <hr>
+            <div class="row">
             <g:each var="p" in="${products}">
-                <div class="row" style="padding: 8px">
-                    <div class="col-lg-3">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
                         <img class="img-responsive center-block"
                              src="https://getuikit.com/docs/images/placeholder_600x400.svg"
                              alt="" />
-                    </div>
-                    <div class="col-lg-9">
-                        <h2><a href="#">${p.title}</a></h2>
-                        <h1>$ ${p.price}</h1>
-                        <p>${p.description}</p>
+                        <div class="caption">
+                            <h3 class="text-center"><g:link action="show_user" controller="product" id="${p.id}">${p.title}</g:link></h3>
+                            <p class="text-center">${p.description}</p>
+                            <p class="text-center"><b>Price: </b>$ ${p.price}</p>
+                            <p>
+                                <g:link action="show_user" class="btn btn-block btn-success" controller="product" id="${p.id}">Buy Now!</g:link>
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <hr />
             </g:each>
+            </div>
         </g:else>
     </content>
 </g:applyLayout>

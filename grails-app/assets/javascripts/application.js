@@ -5,7 +5,10 @@
 // You're free to add application-wide JavaScript to this file, but it's generally better
 // to create separate JavaScript files as needed.
 //
+
 //= require jquery-2.2.0.min
+//= require exa-datatables
+//= require exa-datatables-bootstrap3
 //= require bootstrap
 //= require_tree .
 //= require_self

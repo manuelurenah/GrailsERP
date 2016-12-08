@@ -6,7 +6,7 @@ class Cart {
     Date dateCreated
     Date lastUpdated
 
-    static belongsTo = [User, Product]
+    static belongsTo = [user: User, product: Product]
 
     static constraints = {
         quantity blank:false
