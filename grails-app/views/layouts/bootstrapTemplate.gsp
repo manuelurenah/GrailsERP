@@ -14,7 +14,7 @@
 
     <g:layoutHead/>
 
-    %{--Para incluir otras recursos.--}%
+    %{--Para incluir otros recursos.--}%
     <g:pageProperty name="page.header"/>
 
 </head>

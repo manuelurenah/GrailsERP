@@ -7,6 +7,8 @@
 //
 //= require jquery-2.2.0.min
 //= require bootstrap
+//= require datatables.min
+//= require custom
 //= require_tree .
 //= require_self
 

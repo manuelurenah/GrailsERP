@@ -6,14 +6,16 @@
             <h3>Welcome!</h3>
         </div>
     </content>
+
     <content tag="body">
-        <g:if test="${products.size() == 0}">
-            <div class="col-lg-12 text-center">
-                <h2>There are no products available at the moment</h2>
-            </div>
-        </g:if>
-        <g:else>
-            <g:each var="p" in="${products}">
+
+        <table id="products-table" class="table table-responsive table-hover">
+            <thead><th></th></thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="product-container" hidden>
+            <div class="container">
                 <div class="row" style="padding: 8px">
                     <div class="col-lg-3">
                         <img class="img-responsive center-block"
@@ -21,13 +23,13 @@
                              alt="" />
                     </div>
                     <div class="col-lg-9">
-                        <h2><a href="#">${p.title}</a></h2>
-                        <h1>$ ${p.price}</h1>
-                        <p>${p.description}</p>
+                        <h2><a href="#" class="product-title"></a></h2>
+                        <h1 class="product-price"></h1>
+                        <p class="product-description"></p>
                     </div>
                 </div>
                 <hr />
-            </g:each>
-        </g:else>
+            </div>
+        </div>
     </content>
 </g:applyLayout>
