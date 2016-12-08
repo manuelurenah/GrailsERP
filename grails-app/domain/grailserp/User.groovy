@@ -1,7 +1,6 @@
 package grailserp
 
 class User implements Serializable {
-    private static final long serialVersionUID = 1
 
     transient springSecurityService
 

@@ -8,8 +8,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder
 @ToString(cache=true, includeNames=true, includePackage=false)
 class UserRole implements Serializable {
 
-	private static final long serialVersionUID = 1
-
 	User user
 	Role role
 

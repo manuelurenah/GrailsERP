@@ -9,7 +9,7 @@ class ProductController {
 
     def index = {
         List<Product> products = Product.list(params)
-        [productList: products, productCount: Product.count()]
+        [productList: products?:[], productCount: Product.count()?:0]
     }
 
     def render_image = {
