@@ -2,6 +2,8 @@ package grailserp
 
 class Product {
 
+    byte[] productImage
+    String imageType
     String title
     String description
     BigDecimal price
@@ -15,6 +17,8 @@ class Product {
         description nullable: true
         price blank: false
         quantity blank: false
+        productImage nullable: true, display: false, maxSize: 20971520
+        imageType nullable: true, display: false
     }
 
     @Override

@@ -11,6 +11,13 @@
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
             <f:display bean="product" templates="bootstrap3"/>
+            <div class="row">
+                <div class="col-xs-2 center-block">
+                    <g:if test="${product.productImage}">
+                        <img class="img-responsive" src="${createLink(controller:'product', action:'render_image', id:product.ident())}"
+                    </g:if>
+                </div>
+            </div>
             <g:form resource="${this.product}" method="DELETE">
                 <div class="col-xs-6">
                     <g:link class="btn btn-block btn-info" action="edit" resource="${this.product}">

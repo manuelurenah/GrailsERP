@@ -1,6 +1,7 @@
 package grailserp
 
 import grails.converters.JSON
+import org.springframework.web.multipart.MultipartFile
 
 import static org.springframework.http.HttpStatus.*
 
@@ -9,6 +10,16 @@ class ProductController {
     def index = {
         List<Product> products = Product.list(params)
         [productList: products, productCount: Product.count()]
+    }
+
+    def render_image = {
+        def product = Product.get(params.id)
+
+        response.contentType = product.imageType
+        response.contentLength = product.productImage.size()
+        OutputStream out = response.outputStream
+        out.write(product.productImage)
+        out.close()
     }
 
     def create = { }
@@ -27,6 +38,10 @@ class ProductController {
             respond product.errors, view:'create'
             return
         }
+
+        MultipartFile imageFile = request.getFile('productImage')
+        product.productImage = imageFile.bytes
+        product.imageType = imageFile.contentType
 
         product.save(failOnError: true, flush: true)
 

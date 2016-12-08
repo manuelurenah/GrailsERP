@@ -20,7 +20,11 @@
                     </g:eachError>
                 </ul>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form enctype="multipart/form-data" action="save" >
+                <div class="form-group">
+                    <label for="productImage">Image: </label>
+                    <input type="file" accept="image/*" class="form-control" name="productImage" id="productImage" />
+                </div>
                 <div class="form-group">
                     <label for="title">Title: </label>
                     <input type="text" class="form-control" name="title" id="title" />

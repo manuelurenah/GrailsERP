@@ -20,8 +20,8 @@
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
                     <exa:datatable id="productTable" items="${productList}"
-                                   hidden="dateCreated,description,lastUpdated"
-                                    reorder="id,title,price,quantity">
+                                   hidden="dateCreated,description,lastUpdated,productImage,imageType"
+                                   reorder="id,title,price,quantity">
                         <exa:customHeader name="id" value="Identifier"/>
                         <exa:customHeader name="title" value="Title"/>
                         <exa:customHeader name="price" value="Price"/>
