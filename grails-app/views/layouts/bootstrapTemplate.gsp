@@ -40,21 +40,21 @@
                 <!-- Top Menu Items -->
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <g:if test="${session.currentUser}">
-                            <g:if test="${session.currentUser.isAdmin}">
+                        <sec:ifLoggedIn>
+                            <sec:ifAnyGranted roles="ROLE_ADMIN">
                                 <li><g:link controller="admin" action="index">Admin</g:link></li>
                                 <li><g:link controller="department" action="index">Departments</g:link></li>
                                 <li><g:link controller="user" action="index">Users</g:link></li>
-                            </g:if>
+                            </sec:ifAnyGranted>
                             <li><g:link controller="product" action="index">Products</g:link></li>
                             <li><g:link controller="user" action="logout">Logout</g:link></li>
                             <li class="pull-right">
                                 <g:link controller="cart" action="index" >Cart</g:link>
                             </li>
-                        </g:if>
-                        <g:else>
+                        </sec:ifLoggedIn>
+                        <sec:ifNotLoggedIn>
                             <li><g:link controller="user" action="login">Login</g:link></li>
-                        </g:else>
+                        </sec:ifNotLoggedIn>
                     </ul>
                 </div>
             </nav>

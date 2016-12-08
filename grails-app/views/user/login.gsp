@@ -5,16 +5,18 @@
         </div>
     </content>
     <content tag="body">
-        <g:if test="${flash.error}">
+        <g:if test="${error}">
             <div class="alert alert-danger">
-                ${flash.error}
+                There was an error signing in.
+                <br>
+                Username or password seem to have been mistaken.
             </div>
         </g:if>
 
-        <g:form action="processLogin" >
+        <g:form url="/login/authenticate" >
             <div class="form-group">
-                <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="i.e.: some@email.com"/>
+                <label for="username">E-Mail</label>
+                <input type="email" name="username" id="username" class="form-control" placeholder="i.e.: some@email.com"/>
             </div>
 
             <div class="form-group">

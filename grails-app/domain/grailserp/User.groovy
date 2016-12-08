@@ -1,6 +1,9 @@
 package grailserp
 
-class User {
+class User implements Serializable {
+    private static final long serialVersionUID = 1
+
+    transient springSecurityService
 
     String name
     String lastname
@@ -8,6 +11,11 @@ class User {
     String password
     String userType
     Boolean isAdmin
+    boolean enabled = true
+    boolean accountExpired
+    boolean accountLocked
+    boolean passwordExpired
+
 
     Date dateCreated
     Date lastUpdated
@@ -24,8 +32,36 @@ class User {
         isAdmin nullable: true
     }
 
+    Set<Role> getAuthorities() {
+        UserRole.findAllByUser(this)*.role
+    }
+
+    def addRole(role) {
+        def ur = new UserRole(role: role, user: this)
+        ur.save()
+    }
+
+    def beforeInsert() {
+        encodePassword()
+    }
+
+    def beforeUpdate() {
+        if (isDirty('password')) {
+            encodePassword()
+        }
+    }
+
+    protected void encodePassword() {
+        password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+    }
+
+    static transients = ['springSecurityService']
+
+
     static mapping = {
         department joinTable: [name: 'DepartmentUsers', key: 'user_id']
+        password column: '`password`'
+
     }
 
     @Override

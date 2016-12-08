@@ -4,7 +4,6 @@ class BootStrap {
 
     def init = { servletContext ->
         User admin = new User(name: 'Admin', lastname: 'Admin', email: 'admin@me.com', password: 'admin', isAdmin: true)
-
         Department salesDept = new Department(title: 'Ventas')
         salesDept.save(failOnError: true, flush: true)
         Department warehouseDept = new Department(title: 'Almacén')
@@ -16,6 +15,12 @@ class BootStrap {
 
         admin.department = adminDept
         admin.save(failOnError: true, flush: true)
+        def roles = ["ROLE_USER", "ROLE_ADMIN"]
+        roles.each {
+            def r = new Role(authority: it)
+            r.save()
+            admin.addRole(r)
+        }
     }
 
     def destroy = {

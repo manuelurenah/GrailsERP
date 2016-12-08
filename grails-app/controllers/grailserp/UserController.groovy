@@ -10,7 +10,7 @@ class UserController {
     }
 
     def login() {
-        render view: "login"
+        render view: "login", model: [error: params.error == '1']
     }
 
     def processLogin(String email, String password) {
