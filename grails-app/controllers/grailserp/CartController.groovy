@@ -1,15 +1,15 @@
 package grailserp
 
 class CartController {
-
+    def springSecurityService
     def index() {
 
-        def user = User.findById(session.currentUser.id)
+        def user = User.findById(springSecurityService.currentUser.id)
         [cart: user.carts]
     }
 
     def add() {
-        def user = session.currentUser
+        def user = springSecurityService.currentUser
         def product = Product.findById(params.product)
 
         if (product == null) {
