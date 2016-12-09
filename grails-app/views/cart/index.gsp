@@ -11,11 +11,16 @@
             </div>
         </g:if>
         <g:else>
+            <div class="row">
+                <div class="col-xs-offset-8 col-xs-4">
+                    <a href="#" class="btn btn-success btn-lg pull-right">Proceed to Checkout</a>
+                </div>
+            </div>
             <g:each var="c" in="${cart}">
                 <div class="row" style="padding: 8px">
                     <div class="col-lg-3">
                         <img class="img-responsive center-block"
-                             src="https://getuikit.com/docs/images/placeholder_600x400.svg"
+                             src="/product/render_image/${c.product.id}"
                              alt="" />
                     </div>
                     <div class="col-lg-9">
