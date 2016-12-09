@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-4">
                     <img class="img-responsive center-block"
-                         src="https://getuikit.com/docs/images/placeholder_600x400.svg"
+                         src="/product/render_image/${product.id}"
                          alt="" />
                 </div>
                 <div class="col-xs-12 col-md-8">
@@ -61,7 +61,7 @@
                         <div class="col-xs-6 col-md-3">
                             <div class="thumbnail">
                                 <img class="img-responsive center-block"
-                                     src="https://getuikit.com/docs/images/placeholder_600x400.svg"
+                                     src="/product/render_image/${p.id}"
                                      alt="" />
                                 <div class="caption">
                                     <h3 class="text-center"><g:link action="show_user" controller="product" id="${p.id}">${p.title}</g:link></h3>

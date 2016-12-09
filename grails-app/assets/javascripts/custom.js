@@ -62,7 +62,9 @@ $(document).ready(function() {
                     var productContainer = $('#product-container').clone();
                     productContainer.attr("id","");
                     //add title:
-                    productContainer.find('.product-title').append(product.title);
+                    var link = productContainer.find('.product-title');
+                    link.append(product.title);
+                    link.attr("href", "/product/show_user/" + product.id);
                     productContainer.find('.product-price').append('$ ' + product.price);
                     productContainer.find('.product-description').append(product.description);
                     var img = productContainer.find('.img-responsive');

@@ -10,12 +10,48 @@
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
-            <f:display bean="product" templates="bootstrap3"/>
-            <div class="row">
-                <div class="col-xs-2 center-block">
-                    <g:if test="${product.productImage}">
-                        <img class="img-responsive" src="${createLink(controller:'product', action:'render_image', id:product.ident())}"
-                    </g:if>
+            <div class="row" style="padding: 8px">
+                <div class="col-xs-12 col-md-4">
+                    <img class="img-responsive center-block"
+                         src="/product/render_image/${product.id}"
+                         alt=""
+                         width="150px"
+                         height="150px" />
+                </div>
+                <div class="col-xs-12 col-md-8">
+                    <ol class="property-list product">
+
+                        <li class="fieldcontain">
+                            <span id="title-label" class="property-label">Title</span>
+                            <div class="property-value" aria-labelledby="title-label">${product.title}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="description-label" class="property-label">Description</span>
+                            <div class="property-value" aria-labelledby="description-label">${product.description}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="price-label" class="property-label">Price</span>
+                            <div class="property-value" aria-labelledby="price-label">${product.price}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="quantity-label" class="property-label">Quantity</span>
+                            <div class="property-value" aria-labelledby="quantity-label">${product.quantity}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="lastUpdated-label" class="property-label">Last Updated</span>
+                            <div class="property-value" aria-labelledby="lastUpdated-label">${product.lastUpdated}</div>
+                        </li>
+
+                        <li class="fieldcontain">
+                            <span id="dateCreated-label" class="property-label">Date Created</span>
+                            <div class="property-value" aria-labelledby="dateCreated-label">${product.dateCreated}</div>
+                        </li>
+
+                    </ol>
                 </div>
             </div>
             <g:form resource="${this.product}" method="DELETE">
@@ -29,6 +65,5 @@
                            onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
                 </div>
             </g:form>
-        </div>
     </content>
 </g:applyLayout>
