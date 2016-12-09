@@ -10,14 +10,30 @@
         <h1 class="text-center">Featured Products</h1>
         <hr>
 
-        <div class="row">
-            <div class="col-xs-12">
-                <table id="products-table" class="table table-responsive table-hover">
-                    <thead><th></th></thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
+        <g:if test="${products || products.size() > 0}">
+            <exa:datatable id="product-table"
+                           items="${products}"
+                           hidden="id,productImage,imageType,title,description,price,quantity"
+                           add="custom"
+                           exclude="lastUpdated,dateCreated" filtering="false" ordering="false" infos="false">
+                <exa:customHeader name="custom" value="Product" />
+                <exa:customColumn name="custom">
+                    <div class="col-xs-3">
+                        <img class="img-responsive center-block"
+                             src="/product/render_image/${it.id}"
+                             alt="" />
+                    </div>
+                    <div class="col-xs-9">
+                        <h2><a href="/product/show_user/${it.id}" class="product-title">${it.title}</a></h2>
+                        <h1 class="product-price">${it.price}</h1>
+                        <p class="product-description">${it.description}</p>
+                    </div>
+                </exa:customColumn>
+            </exa:datatable>
+        </g:if>
+        <g:else>
+            <h3 class="text-center">There are no products available</h3>
+        </g:else>
 
         <div id="product-container" hidden>
             <div class="container">

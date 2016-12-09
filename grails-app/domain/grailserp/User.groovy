@@ -33,9 +33,15 @@ class User implements Serializable {
         zip nullable: true
         state nullable: true
         email email: true, blank: false, unique: true
-        password blank: false
+        password blank: false, display: false
         userType nullable: true
         isAdmin nullable: true
+        purchases display: false
+        carts display: false
+        enabled display: false
+        accountExpired display: false
+        accountLocked display: false
+        passwordExpired display: false
     }
 
     Set<Role> getAuthorities() {

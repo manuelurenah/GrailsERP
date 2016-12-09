@@ -16,7 +16,7 @@
                     <h2>Total: ${total}</h2>
                 </div>
                 <div class="col-xs-4">
-                    <g:link class="btn btn-success pull-right " action="index" controller="purchase">
+                    <g:link class="btn btn-lg btn-success pull-right " action="index" controller="purchase">
                         Proceed to Checkout
                     </g:link>
                 </div>

@@ -30,6 +30,22 @@
                     <input type="text" class="form-control" name="lastname" id="lastname" />
                 </div>
                 <div class="form-group">
+                    <label for="state">State: </label>
+                    <input type="text" class="form-control" name="state" id="state" />
+                </div>
+                <div class="form-group">
+                    <label for="city">City: </label>
+                    <input type="text" class="form-control" name="city" id="city" />
+                </div>
+                <div class="form-group">
+                    <label for="address">Address: </label>
+                    <input type="text" class="form-control" name="address" id="address" />
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip: </label>
+                    <input type="text" class="form-control" name="zip" id="zip" />
+                </div>
+                <div class="form-group">
                     <label for="email">E-mail: </label>
                     <input type="email" class="form-control" name="email" id="email" />
                 </div>

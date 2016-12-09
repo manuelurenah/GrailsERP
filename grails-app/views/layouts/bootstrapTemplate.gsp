@@ -28,7 +28,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -39,18 +39,20 @@
 
                 <!-- Top Menu Items -->
                 <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav navbar-left">
                         <sec:ifLoggedIn>
                             <sec:ifAnyGranted roles="ROLE_ADMIN">
                                 <li><g:link controller="admin" action="index">Admin</g:link></li>
                                 <li><g:link controller="department" action="index">Departments</g:link></li>
                                 <li><g:link controller="user" action="index">Users</g:link></li>
+                                <li><g:link controller="product" action="index">Products</g:link></li>
                             </sec:ifAnyGranted>
-                            <li><g:link controller="product" action="index">Products</g:link></li>
+                        </sec:ifLoggedIn>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <sec:ifLoggedIn>
+                            <li><g:link controller="cart" action="index" >Cart</g:link></li>
                             <li><g:link controller="user" action="logout">Logout</g:link></li>
-                            <li class="pull-right">
-                                <g:link controller="cart" action="index" >Cart</g:link>
-                            </li>
                         </sec:ifLoggedIn>
                         <sec:ifNotLoggedIn>
                             <li><g:link controller="user" action="login">Login</g:link></li>

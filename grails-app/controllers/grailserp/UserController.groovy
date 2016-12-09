@@ -4,6 +4,8 @@ import static org.springframework.http.HttpStatus.*
 
 class UserController {
 
+    def springSecurityService
+
     def index = {
         List<User> users = User.list()
         [userList: users, userCount: User.count()]
