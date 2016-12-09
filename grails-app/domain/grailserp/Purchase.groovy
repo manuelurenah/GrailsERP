@@ -10,6 +10,8 @@ class Purchase {
     Date lastUpdated
 
     static belongsTo = [User]
+    static hasMany = [products: Product]
+
     static constraints = {
 
     }

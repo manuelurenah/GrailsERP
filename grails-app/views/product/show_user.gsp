@@ -1,7 +1,7 @@
 <g:applyLayout name="bootstrapTemplate">
     <content tag="body">
         <div id="show-product" class="content scaffold-show" role="main">
-            <br>
+            <h1>Product Information</h1>
             <div class="row">
                 <div class="col-xs-12">
                     <g:link class="btn btn-warning pull-right " action="index" controller="home">
@@ -23,6 +23,7 @@
                     <h2>${product.title}</h2>
                     <p>${product.description}</p>
                     <br>
+                    <h2>Unit Price: ${product.price}</h2>
                     <p><b>Available: </b> ${product.quantity}</p>
                 </div>
             </div>

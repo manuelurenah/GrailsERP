@@ -12,8 +12,13 @@
         </g:if>
         <g:else>
             <div class="row">
-                <div class="col-xs-offset-8 col-xs-4">
-                    <a href="#" class="btn btn-success btn-lg pull-right">Proceed to Checkout</a>
+                <div class="col-xs-8">
+                    <h2>Total: ${total}</h2>
+                </div>
+                <div class="col-xs-4">
+                    <g:link class="btn btn-success pull-right " action="index" controller="purchase">
+                        Proceed to Checkout
+                    </g:link>
                 </div>
             </div>
             <g:each var="c" in="${cart}">
@@ -24,9 +29,10 @@
                              alt="" />
                     </div>
                     <div class="col-lg-9">
-                        <h1><a href="#">${c.product.title}</a></h1>
+                        <h1><a href="/product/show_user/${c.product.id}">${c.product.title}</a></h1>
                         <h2>$ ${c.product.price}</h2>
                         <p>Quantity: ${c.quantity}</p>
+                        <a href="#">Remove</a>
                     </div>
                 </div>
                 <hr />

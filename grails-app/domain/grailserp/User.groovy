@@ -6,6 +6,10 @@ class User implements Serializable {
 
     String name
     String lastname
+    String state
+    String city
+    String address
+    String zip
     String email
     String password
     String userType
@@ -15,16 +19,19 @@ class User implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
-
     Date dateCreated
     Date lastUpdated
 
     static hasOne = [department: Department]
-    static hasMany = [carts: Cart]
+    static hasMany = [carts: Cart, purchases: Purchase]
 
     static constraints = {
         name blank: false
         lastname blank: false
+        address nullable: true
+        city nullable: true
+        zip nullable: true
+        state nullable: true
         email email: true, blank: false, unique: true
         password blank: false
         userType nullable: true
@@ -60,7 +67,7 @@ class User implements Serializable {
     static mapping = {
         department joinTable: [name: 'DepartmentUsers', key: 'user_id']
         password column: '`password`'
-
+        purchases cascade: 'all-delete-orphan'
     }
 
     @Override
