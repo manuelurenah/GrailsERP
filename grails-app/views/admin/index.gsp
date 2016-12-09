@@ -19,7 +19,7 @@
                                          columns="${myDailyActivitiesColumns}"
                                          data="${myDailyActivitiesData}" />
 
-            <div id="piechart" class="col-xs-6"></div>
+            <div id="piechart" class="col-xs-7"></div>
         </g:else>
     </content>
 </g:applyLayout>
