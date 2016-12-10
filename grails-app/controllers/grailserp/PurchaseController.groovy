@@ -37,11 +37,12 @@ class PurchaseController {
 
             Map<String, Object> reportParam = new HashMap<String, Object>()
             def listItems = ArticlePurchase.getArticlesFromPurchase(purchase)
+            println purchase
             def dataSource = new JRBeanCollectionDataSource(listItems)
 
             reportParam.put("customerName", purchase.user.name + " " + purchase.user.lastname)
             reportParam.put("customerEmail", purchase.user.email)
-            reportParam.put("dispatchNumber", "DIS#000" + purchase.id as String)
+            reportParam.put("dispatchNumber", "DIS000" + purchase.id as String)
             reportParam.put("invoiceTotal",'$' + purchase.total as String)
             reportParam.put("customerAddress", purchase.address)
             reportParam.put("customerCity", purchase.city)
@@ -87,6 +88,7 @@ class PurchaseController {
                 state: params.address_state
         )
         purchase.save(failOnError: true, flush: true)
+        purchase = Purchase.findById(purchase.id)
 
         user.purchases.add(purchase)
         user.save(failOnError: true, flush: true)
@@ -101,13 +103,16 @@ class PurchaseController {
                     purchase: purchase)
             pp.save(failOnError: true, flush: true)
             products.add(pp)
-//            purchase.products.add(pp)
+            purchase.products.add(pp)
+        }
+        purchase.save(flush:true)
+        def items = user.carts
+        user.carts = null
+        items.each {
+            it.delete(flush:true)
         }
 
-        user.carts.each{
-            user.carts.remove(it)
-            it.delete();
-        }
+        user.save(flush: true)
 
         // EMAIL SUPPLIERS:
         def sendTo = []
@@ -128,7 +133,7 @@ class PurchaseController {
         }
 
 
-        [purchase: purchase, products: products, user: user]
+        [purchase: purchase, products: purchase.products, user: user]
 
     }
 

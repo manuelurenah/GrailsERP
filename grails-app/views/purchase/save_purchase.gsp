@@ -27,20 +27,22 @@
                         </thead>
                         <tbody>
                             <g:each var="p" in="${products}">
-                                <td>
-                                    <a href="${g.createLink(controller: "product", action:"show_product", id:p.product.id)}">
-                                        ${p.product.title}
-                                    </a>
-                                </td>
-                                <td>
-                                    ${p.quantity}
-                                </td>
-                                <td>
-                                    $${p.price}
-                                </td>
-                                <td>
-                                    $${p.price * p.quantity}
-                                </td>
+                                <tr>
+                                    <td>
+                                        <a href="${g.createLink(controller: "product", action:"show_product", id:p.product.id)}">
+                                            ${p.product.title}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        ${p.quantity}
+                                    </td>
+                                    <td>
+                                        $${p.price}
+                                    </td>
+                                    <td>
+                                        $${p.price * p.quantity}
+                                    </td>
+                                </tr>
                             </g:each>
                         </tbody>
                     </table>
