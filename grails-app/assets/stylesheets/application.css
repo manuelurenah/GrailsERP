@@ -16,6 +16,38 @@
 *= require_self
 */
 
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+body {
+    font-size: 16px;
+    line-height: 1.5;
+    background: #ecf0f1;
+}
+
+#site-header .navbar {
+    border-radius: 0;
+    border: none;
+    margin: 0;
+}
+
+#site-main {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+#site-footer {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    font-size: 12px;
+    background: #222;
+    color: #999;
+}
+
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -45,23 +77,9 @@
     position: absolute;
 }
 
-body {
-    background: #ecf0f1;
-}
-
 .container {
     background: white;
     padding: 8px;
-}
-
-.vcenter {
-     display: inline-block;
-     vertical-align: middle;
-     float: none;
- }
-
-h1,h2,h3,h4,h5,h6 {
-    font-family: 'Josefin Sans', sans-serif !important;
 }
 
 * {

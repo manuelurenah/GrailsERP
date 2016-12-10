@@ -10,6 +10,10 @@
         <h1 class="text-center">Featured Products</h1>
         <hr>
 
+        <div class="col-xs-12">
+            <g:link class="btn btn-block btn-info" action="generate_invoice" controller="home">Generate Report</g:link>
+        </div>
+
         <g:if test="${products || products.size() > 0}">
             <exa:datatable id="product-table"
                            items="${products}"
