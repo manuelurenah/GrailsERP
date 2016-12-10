@@ -21,6 +21,8 @@ class Product {
         imageType nullable: true, display: false
     }
 
+    static hasMany = [purchases: PurchaseProduct]
+
     @Override
     String toString() {
         return title

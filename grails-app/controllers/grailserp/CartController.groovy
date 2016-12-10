@@ -9,16 +9,14 @@ class CartController {
         def user = User.findById(springSecurityService.currentUser.id)
 
         BigDecimal cartTotal = 0.0
-
         user.carts.each {cart ->
             cartTotal += cart.product.price * cart.quantity
         }
-
         [cart: user.carts, total: cartTotal]
     }
 
     def add() {
-        def user = springSecurityService.currentUser
+        def user = User.findById(springSecurityService.currentUser.id)
         def product = Product.findById(params.product)
 
         if (product == null) {
@@ -26,16 +24,34 @@ class CartController {
             notFound()
             return
         }
+        def currentCart = Cart.findByUserAndProduct(user, product)
 
-        def cart = new Cart(product: product, user: user, quantity: params.quantity)
+        if(currentCart){
+            currentCart.quantity = params.quantity as Integer
+            currentCart.save(failOnError: true, flush: true)
+        }
+        else{
+            def cart = new Cart(product: product, user: user, quantity: params.quantity)
 
-        if (cart.hasErrors()) {
-            transactionStatus.setRollbackOnly()
-            respond "ERROR"
-            return
+            if (cart.hasErrors()) {
+                transactionStatus.setRollbackOnly()
+                respond "ERROR"
+                return
+            }
+
+            cart.save(failOnError: true, flush: true)
+
         }
 
-        cart.save(failOnError: true, flush: true)
+        redirect controller: "cart", action: "index"
+    }
+
+    def remove() {
+        def user = User.findById(springSecurityService.currentUser.id)
+        def product = Product.findById(params.product)
+
+        def toRemove = Cart.findByUserAndProduct(user, product)
+        toRemove.delete()
         redirect controller: "cart", action: "index"
     }
 

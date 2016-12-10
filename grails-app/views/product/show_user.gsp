@@ -15,7 +15,7 @@
             </g:if>
             <div class="row">
                 <div class="col-xs-12 col-md-4">
-                    <img class="img-responsive center-block"
+                    <img class="img-responsive center-block img-rounded"
                          src="/product/render_image/${product.id}"
                          alt="" />
                 </div>
@@ -36,14 +36,19 @@
                     <input type="hidden" value="${product.id}" name="product">
                     <div class="col-xs-12 col-md-9">
                         <div class="form-group">
-                            <label for="qnt">Quantity</label>
-                            <select name="quantity" class="form-control" id="qnt" placeholder="Select product quantity to purchase">
-                                <g:each var="i" in="${1..Math.min(product.quantity, 99)}">
-                                    <option value="${i}" <g:if test="${i==1}">
-                                        selected
-                                    </g:if>>${i}</option>
-                                </g:each>
-                            </select>
+                            <g:if test="${product.quantity > 0}">
+                                <label for="qnt">Quantity</label>
+                                <select name="quantity" class="form-control" id="qnt" placeholder="Select product quantity to purchase">
+                                    <g:each var="i" in="${1..Math.min(product.quantity, 99)}">
+                                        <option value="${i}" <g:if test="${i==1}">
+                                            selected
+                                        </g:if>>${i}</option>
+                                    </g:each>
+                                </select>
+                            </g:if>
+                            <g:else>
+                                <h3> Product is not available. </h3>
+                            </g:else>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-3">

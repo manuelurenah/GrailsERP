@@ -11,9 +11,18 @@
             </div>
         </g:if>
         <g:else>
+            <g:if test="${params.cancelled}">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="alert alert-danger">
+                            You cancelled the purchase. Feel free to purchase again whenever you like.
+                        </div>
+                    </div>
+                </div>
+            </g:if>
             <div class="row">
                 <div class="col-xs-8">
-                    <h2>Total: ${total}</h2>
+                    <h2>Total: $${total}</h2>
                 </div>
                 <div class="col-xs-4">
                     <g:link class="btn btn-lg btn-success pull-right " action="index" controller="purchase">
@@ -24,7 +33,7 @@
             <g:each var="c" in="${cart}">
                 <div class="row" style="padding: 8px">
                     <div class="col-lg-3">
-                        <img class="img-responsive center-block"
+                        <img class="img-responsive center-block img-rounded"
                              src="/product/render_image/${c.product.id}"
                              alt="" />
                     </div>
@@ -32,7 +41,7 @@
                         <h1><a href="/product/show_user/${c.product.id}">${c.product.title}</a></h1>
                         <h2>$ ${c.product.price}</h2>
                         <p>Quantity: ${c.quantity}</p>
-                        <a href="#">Remove</a>
+                        <a href="${g.createLink(controller: "cart", action:"remove")}?product=${c.product.id}">Remove</a>
                     </div>
                 </div>
                 <hr />

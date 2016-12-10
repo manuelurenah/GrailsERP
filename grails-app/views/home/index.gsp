@@ -15,11 +15,11 @@
                            items="${products}"
                            hidden="id,productImage,imageType,title,description,price,quantity"
                            add="custom"
-                           exclude="lastUpdated,dateCreated" filtering="false" ordering="false" infos="false">
+                           exclude="lastUpdated,dateCreated,hasMany,purchases" filtering="false" ordering="false" infos="false">
                 <exa:customHeader name="custom" value="Product" />
                 <exa:customColumn name="custom">
                     <div class="col-xs-3">
-                        <img class="img-responsive center-block"
+                        <img class="img-responsive img-rounded center-block"
                              src="/product/render_image/${it.id}"
                              alt="" />
                     </div>
