@@ -2,10 +2,14 @@
     <content tag="header">
         <gvisualization:apiImport />
     </content>
-    <content tag="body">
+    <content tag="banner">
         <div class="jumbotron text-center">
             <h1>Charts and Statistics</h1>
+            <hr>
         </div>
+    </content>
+    <content tag="body">
+
         <g:if test="${!myDailyActivitiesData || myDailyActivitiesData.size() == 0}">
             <div class="col-xs-12 text-center">
                 <h2>There is no data to show.</h2>
