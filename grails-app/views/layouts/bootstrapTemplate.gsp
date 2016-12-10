@@ -41,17 +41,24 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
                         <sec:ifLoggedIn>
+                            <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SALES">
+                                <li><g:link controller="admin" action="index">Sales and Reports</g:link></li>
+                            </sec:ifAnyGranted>
                             <sec:ifAnyGranted roles="ROLE_ADMIN">
-                                <li><g:link controller="admin" action="index">Admin</g:link></li>
-                                <li><g:link controller="department" action="index">Departments</g:link></li>
                                 <li><g:link controller="user" action="index">Users</g:link></li>
+                                <li><g:link controller="department" action="index">Departments</g:link></li>
+                            </sec:ifAnyGranted>
+                            <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SUPPLY">
                                 <li><g:link controller="product" action="index">Products</g:link></li>
                             </sec:ifAnyGranted>
-                            <li><g:link controller="purchase" action="list">Purchases</g:link></li>
+
+
+
                         </sec:ifLoggedIn>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <sec:ifLoggedIn>
+                            <li><g:link controller="purchase" action="list">My Purchases</g:link></li>
                             <li><g:link controller="cart" action="index" >Cart</g:link></li>
                             <li><g:link controller="user" action="logout">Logout</g:link></li>
                         </sec:ifLoggedIn>

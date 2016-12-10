@@ -19,7 +19,7 @@ class HomeController {
 
     def dataSource
 
-    @Secured(['ROLE_USER'])
+    @Secured(['ROLE_USER','ROLE_ADMIN','ROLE_SALES','ROLE_SUPPLY'])
     def index() {
         List<Product> productList = Product.list()
         [products: productList]
