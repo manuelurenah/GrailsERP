@@ -38,7 +38,8 @@ class UserController {
     def create = {}
 
     def save = {
-        params.password = RandomStringUtils.random(8)
+        def charset = (('A'..'Z') + ('0'..'9')).join()
+        params.password = RandomStringUtils.random(8, charset.toArray())
         User user = new User(params)
 
         if (user == null) {
