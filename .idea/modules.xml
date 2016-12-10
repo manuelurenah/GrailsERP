@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrailsERP.iml" filepath="$PROJECT_DIR$/.idea/modules/GrailsERP.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrailsERP_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GrailsERP_main.iml" group="GrailsERP" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrailsERP_main.iml" filepath="$PROJECT_DIR$/.idea/modules/GrailsERP_main.iml" group="GrailsERP" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrailsERP_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GrailsERP_test.iml" group="GrailsERP" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/GrailsERP_test.iml" filepath="$PROJECT_DIR$/.idea/modules/GrailsERP_test.iml" group="GrailsERP" />
     </modules>
   </component>
