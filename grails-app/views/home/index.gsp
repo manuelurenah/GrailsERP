@@ -10,17 +10,14 @@
         <h1 class="text-center">Featured Products</h1>
         <hr>
 
-        <div class="col-xs-12">
-            <g:link class="btn btn-block btn-info" action="generate_invoice" controller="home">Generate Report</g:link>
-        </div>
-
         <g:if test="${products || products.size() > 0}">
             <exa:datatable id="product-table"
                            items="${products}"
                            hidden="id,productImage,imageType,title,description,price,quantity"
                            add="custom"
+                class="table table-stripped table-striped"
                            exclude="lastUpdated,dateCreated,hasMany,purchases" filtering="false" ordering="false" infos="false">
-                <exa:customHeader name="custom" value="Product" />
+                <exa:customHeader name="custom" value="Products" />
                 <exa:customColumn name="custom">
                     <div class="col-xs-3">
                         <img class="img-responsive img-rounded center-block"
@@ -28,9 +25,10 @@
                              alt="" />
                     </div>
                     <div class="col-xs-9">
-                        <h2><a href="/product/show_user/${it.id}" class="product-title">${it.title}</a></h2>
-                        <h1 class="product-price">${it.price}</h1>
+                        <h1><a href="/product/show_user/${it.id}" class="product-title">${it.title}</a></h1>
                         <p class="product-description">${it.description}</p>
+                        <h2 class="product-price">Per Unit Price: $${it.price}</h2>
+
                     </div>
                 </exa:customColumn>
             </exa:datatable>
