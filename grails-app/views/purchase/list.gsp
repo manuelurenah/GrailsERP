@@ -14,9 +14,11 @@
                     </g:if>
                     <g:if test="${purchaseList && purchaseList.size() > 0}">
                         <exa:datatable id="purchasetable" items="${purchaseList}"
-                                       reorder="id,user,total,dateCreated,isVerified,isProcessed"
-                                       hidden="txnId,notation,lastUpdated,belongsTo,emailSent,products,hasMany" >
+                                       reorder="id,user,total,dateCreated,isVerified,isProcessed,invoice"
+                                        add="invoice"
+                                       hidden="txnId,notation,lastUpdated,belongsTo,emailSent,products,hasMany,address,city,zip,state" >
                             <exa:customHeader name="id" value="Identifier"/>
+                            <exa:customHeader name="invoice" value="Invoice"/>
                             <exa:customHeader name="user" value="Client"/>
                             <exa:customHeader name="total" value="Total"/>
                             <exa:customHeader name="dateCreated" value="Purchase Date"/>
@@ -24,6 +26,12 @@
                             <exa:customHeader name="isProcessed" value="Processed"/>
                             <exa:customColumn name="user">
                                 ${it.user}
+                            </exa:customColumn>
+                            <exa:customColumn name="invoice">
+                                <a      class="btn btn-success"
+                                        href="${g.createLink(controller:"reports", action:"generate_invoice", id:it.id)}">
+                                    Download Invoice
+                                </a>
                             </exa:customColumn>
 
                         </exa:datatable>

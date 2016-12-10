@@ -32,6 +32,7 @@ class PurchaseController {
 
         user.purchases.add(purchase)
         user.save(failOnError: true, flush: true)
+        purchase.products = []
         user.carts.each { cart ->
             // let's add this to purchases:
             def pp = new PurchaseProduct(
@@ -40,13 +41,16 @@ class PurchaseController {
                     quantity: cart.quantity,
                     purchase: purchase)
             pp.save(failOnError: true, flush: true)
+            purchase.products.add(pp)
         }
         purchase.save()
+        println purchase.products
         user.carts.each{
             user.carts.remove(it)
             it.delete();
         }
-        redirect controller: 'home', action: 'index'
+        [purchase: purchase, user: user]
+
     }
 
     def list = {

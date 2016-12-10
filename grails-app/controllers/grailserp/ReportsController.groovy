@@ -51,7 +51,7 @@ class ReportsController {
             exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, pdfStream) // your output goes here
 
             exporter.exportReport()
-
+            println "BASICALLY DONE...."
         } catch (Exception e) {
             println e
             println e.message
@@ -59,6 +59,7 @@ class ReportsController {
             throw new GroovyRuntimeException("It's not possible to generate the pdf report.", e);
         } finally {
             //render(file: pdfStream.toByteArray(), contentType: 'application/pdf')
+            println "No problems.... Returning...."
             render file: pdfStream.toByteArray(), fileName: 'DownloadReport.pdf', contentType: 'application/pdf'
         }
     }
