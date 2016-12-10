@@ -52,6 +52,7 @@ dependencies {
     compile "org.grails.plugins:spring-security-rest:2.0.0.M2"
     compile "org.grails.plugins:jasper:2.0.0.RC1"
     compile 'org.grails.plugins:mail:2.0.0.RC6'
+    compile "org.grails.plugins:mail:1.0.7"
     console "org.grails:grails-console"
     profile "org.grails.profiles:web"
     runtime "com.bertramlabs.plugins:asset-pipeline-grails:2.11.1"
@@ -62,6 +63,7 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-htmlunit-driver:2.47.1"
     testRuntime "net.sourceforge.htmlunit:htmlunit:2.18"
 }
+
 
 
 assets {
