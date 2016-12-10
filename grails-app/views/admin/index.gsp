@@ -20,6 +20,7 @@
                                          elementId="piechart"
                                          title="Orders Overview"
                                          width="${450}" height="${300}"
+                
                                          columns="${myDailyActivitiesColumns}"
                                          data="${myDailyActivitiesData}" />
 
