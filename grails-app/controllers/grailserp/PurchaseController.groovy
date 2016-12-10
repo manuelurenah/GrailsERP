@@ -1,6 +1,15 @@
 package grailserp
 
+import grailserp.reports.ArticlePurchase
+import net.sf.jasperreports.engine.JRExporter
+import net.sf.jasperreports.engine.JRExporterParameter
+import net.sf.jasperreports.engine.JasperCompileManager
+import net.sf.jasperreports.engine.JasperFillManager
+import net.sf.jasperreports.engine.JasperPrint
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
+import net.sf.jasperreports.engine.export.JRPdfExporter
 import org.apache.commons.beanutils.converters.BigDecimalConverter
+import org.apache.commons.io.output.ByteArrayOutputStream
 
 import static org.springframework.http.HttpStatus.*
 
@@ -12,6 +21,54 @@ class PurchaseController {
         def user = User.get(springSecurityService.currentUser.id)
         [user: user]
     }
+
+    private generate_dispatch_report(Purchase purchase) {
+        println "------------ STARTING REPORT ----------------"
+        ByteArrayOutputStream pdfStream = null
+        try {
+            println "------------------ REPORT IS BEING GENERATED --------------------"
+            String reportName, jrxmlFileName, dotJasperFileName
+            jrxmlFileName = "Dispatch"
+            reportName = grailsApplication.mainContext.getResource("reports/${jrxmlFileName}.jrxml").file.getAbsoluteFile()
+            dotJasperFileName = grailsApplication.mainContext.getResource("reports/${jrxmlFileName}.jasper").file.getAbsoluteFile()
+            println reportName
+            // Report parameter
+
+            Map<String, Object> reportParam = new HashMap<String, Object>()
+            def listItems = ArticlePurchase.getArticlesFromPurchase(purchase)
+            def dataSource = new JRBeanCollectionDataSource(listItems)
+
+            reportParam.put("customerName", purchase.user.name + " " + purchase.user.lastname)
+            reportParam.put("customerEmail", purchase.user.email)
+            reportParam.put("dispatchNumber", "DIS#000" + purchase.id as String)
+            reportParam.put("invoiceTotal",'$' + purchase.total as String)
+            reportParam.put("customerAddress", purchase.address)
+            reportParam.put("customerCity", purchase.city)
+            reportParam.put("customerState", purchase.state)
+            reportParam.put("invoiceDate",new Date())
+
+            // compiles jrxml
+            JasperCompileManager.compileReportToFile(reportName);
+            // fills compiled report with parameters and a connection
+            JasperPrint print = JasperFillManager.fillReport(dotJasperFileName, reportParam, dataSource);
+
+            pdfStream = new ByteArrayOutputStream();
+            // exports report to pdf
+            JRExporter exporter = new JRPdfExporter()
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, print)
+            exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, pdfStream) // your output goes here
+
+            exporter.exportReport()
+
+        } catch (Exception e) {
+            println e
+            println e.message
+            println "----PRINTED E -----"
+        } finally {
+            return pdfStream
+        }
+    }
+
 
     def save_purchase = {
         def user = User.get(springSecurityService.currentUser.id)
@@ -49,6 +106,26 @@ class PurchaseController {
             user.carts.remove(it)
             it.delete();
         }
+
+        // EMAIL SUPPLIERS:
+        def sendTo = []
+        sendTo.add("lrojas94@gmail.com")
+        def supplyRole = Role.findByAuthority("ROLE_SUPPLY")
+        def users = UserRole.findAllByRole(supplyRole)
+        users.each {
+            sendTo.add(it.user.email)
+        }
+
+        sendMail {
+            multipart true
+            subject "Dispatch Request"
+            text "You will be finding a dispatch request attached bellow."
+            to sendTo
+            from "grailserp@gmail.com"
+            attach "dispatch.pdf", "application/pdf", this.generate_dispatch_report(purchase).toByteArray()
+        }
+
+
         [purchase: purchase, user: user]
 
     }

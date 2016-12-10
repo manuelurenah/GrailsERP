@@ -15,7 +15,7 @@ class BootStrap {
 
         admin.department = adminDept
         admin.save(failOnError: true, flush: true)
-        def roles = ["ROLE_USER", "ROLE_ADMIN"]
+        def roles = ["ROLE_USER", "ROLE_ADMIN", "ROLE_SUPPLY", "ROLE_SALES"]
         roles.each {
             def r = new Role(authority: it)
             r.save()

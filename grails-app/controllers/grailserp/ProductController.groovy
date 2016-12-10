@@ -1,6 +1,7 @@
 package grailserp
 
 import grails.converters.JSON
+import org.springframework.security.access.annotation.Secured
 import org.springframework.web.multipart.MultipartFile
 
 import static org.springframework.http.HttpStatus.*
@@ -22,9 +23,11 @@ class ProductController {
         out.close()
     }
 
-    def create = { }
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY'])
+    def create() { }
 
-    def save = {
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY'])
+    def save() {
         Product product = new Product(params)
 
         if (product == null) {
@@ -54,12 +57,14 @@ class ProductController {
         }
     }
 
-    def edit = {
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY'])
+    def edit() {
         Product product = Product.get(params.id)
         [product: product]
     }
 
-    def update = {
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY'])
+    def update() {
         Product product = Product.get(params.id)
 
         if (product == null) {
@@ -86,24 +91,26 @@ class ProductController {
         }
     }
 
-    def show = {
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY','ROLE_SALES'])
+    def show() {
         Product product = Product.get(params.id)
         [product: product]
     }
 
-    def list = {
+    @Secured(['ROLE_ADMIN','ROLE_SUPPLY','ROLE_SALES'])
+    def list() {
         def products = Product.findAllByQuantityGreaterThan(0)
         def data = ['aaData': products]
         render data as JSON
     }
 
-    def show_user = {
+    def show_user() {
         Product product = Product.get(params.id)
         def otherProducts = Product.find("from Product order by rand()", [max:4])
         render view: "show_user", model:[others: otherProducts, product: product]
     }
 
-    def delete = {
+    def delete() {
         Product product = Product.get(params.id)
 
         if (product == null) {
