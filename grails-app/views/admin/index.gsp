@@ -16,14 +16,14 @@
             </div>
         </g:if>
         <g:else>
-            <gvisualization:pieCoreChart dynamicLoading="${true}"
+            <gvisualization:barCoreChart dynamicLoading="${true}"
                                          elementId="piechart"
-                                         title="My Daily Activities"
+                                         title="Orders Overview"
                                          width="${450}" height="${300}"
                                          columns="${myDailyActivitiesColumns}"
                                          data="${myDailyActivitiesData}" />
 
-            <div id="piechart" class="col-xs-7"></div>
+            <div id="piechart" class="col-xs-12"></div>
         </g:else>
 
         <g:if test="${purchases && purchases.size() > 0}">

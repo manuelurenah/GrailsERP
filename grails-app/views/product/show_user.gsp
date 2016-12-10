@@ -55,7 +55,7 @@
                     <div class="col-xs-12 col-md-3">
                         <div class="form-group">
                             <label for="">&nbsp;</label>
-                            <button type="submit" class="form-control btn btn-block btn-success"><i class="fa fa-plus"></i> Add to cart </button>
+                            <button type="submit" class="form-control btn btn-block btn-success"> Add to cart </button>
                         </div>
                     </div>
                 </g:form>

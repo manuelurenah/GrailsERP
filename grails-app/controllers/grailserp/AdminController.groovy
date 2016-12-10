@@ -6,8 +6,15 @@ class AdminController {
 
     @Secured(['ROLE_ADMIN','ROLE_SALES'])
     def index() {
-        def myDailyActivitiesColumns = [['string', 'Task'], ['number', 'Hours per Day']]
-        def myDailyActivitiesData = [['Work', 11], ['Eat', 2], ['Commute', 2], ['Watch TV', 2], ['Sleep', 7]]
+        def now = new Date().clearTime()
+        def todayPurchases = Purchase.countByDateCreatedBetween(now, now+1)
+        def todayValidPurchases = Purchase.countByDateCreatedBetweenAndIsVerified(now, now+1, true)
+        def todayPending = Purchase.countByDateCreatedBetweenAndIsVerified(now, now+1, false)
+
+        def myDailyActivitiesColumns = [['string', 'Action'], ['number', 'Quantity']]
+        def myDailyActivitiesData = [['Orders', todayPurchases],
+                                     ['Delivered Orders', todayValidPurchases],
+                                     ['Pending', todayPending]]
         def purchases = Purchase.list(params)
         [myDailyActivitiesColumns: myDailyActivitiesColumns,
          myDailyActivitiesData: myDailyActivitiesData,
