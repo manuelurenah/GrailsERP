@@ -22,45 +22,62 @@
                 </ul>
             </g:hasErrors>
             <g:form action="update" id="${user.id}">
-                <div class="form-group">
-                    <label for="name">Name: </label>
-                    <input type="text" class="form-control" name="name" id="name" value="${user.name}" />
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Last Name: </label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" value="${user.lastname}" />
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail: </label>
-                    <input type="email" class="form-control" name="email" id="email" value="${user.email}" />
-                </div>
-                <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input type="password" class="form-control" name="password" id="password" value="${user.password}" />
-                </div>
-                <div class="form-group">
-                    <label for="userType">User Type: </label>
-                    <g:select class="form-control"
-                              name="userType"
-                              from="${['Jurídico', 'Consumidor Final']}"
-                              value="${user.userType}" />
-                </div>
-                <div class="form-group">
-                    <label for="department">Department: </label>
-                    <g:select class="form-control"
-                              name="department"
-                              from="${Department.list()}"
-                              optionKey="id"
-                              value="${user.department.id}" />
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <g:checkBox class="checkbox"
-                                    name="isAdmin"
-                                    optionKey="id"
-                                    value="${user.isAdmin}" /> Administrador
-                    </label>
-                </div>
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Name: </label>
+                        <input type="text" class="form-control" name="name" id="name" value="${user.name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name: </label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" value="${user.lastname}" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Address</legend>
+                    <div class="form-group">
+                        <label for="state">State: </label>
+                        <input type="text" class="form-control" name="state" id="state" value="${user.state}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City: </label>
+                        <input type="text" class="form-control" name="city" id="city" value="${user.city}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <input type="text" class="form-control" name="address" id="address" value="${user.address}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip: </label>
+                        <input type="text" class="form-control" name="zip" id="zip" value="${user.zip}" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>General Information</legend>
+                    <div class="form-group">
+                        <label for="email">E-mail: </label>
+                        <input type="email" class="form-control" name="email" id="email" value="${user.email}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input type="password" class="form-control" name="password" id="password" value="${user.password}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">User Type: </label>
+                        <g:select class="form-control"
+                                  name="userType"
+                                  from="${['Jurídico', 'Consumidor Final']}"
+                                  value="${user.userType}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department: </label>
+                        <g:select class="form-control"
+                                  name="department"
+                                  from="${Department.list()}"
+                                  optionKey="id"
+                                  value="${user.department.id}" />
+                    </div>
+                </fieldset>
                 <div class="col-xs-6">
                     <g:submitButton name="create" class="btn btn-success btn-block" value="Save" />
                 </div>
