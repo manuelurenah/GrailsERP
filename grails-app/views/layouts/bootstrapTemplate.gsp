@@ -47,6 +47,7 @@
                                 <li><g:link controller="user" action="index">Users</g:link></li>
                                 <li><g:link controller="product" action="index">Products</g:link></li>
                             </sec:ifAnyGranted>
+                            <li><g:link controller="purchase" action="list">Purchases</g:link></li>
                         </sec:ifLoggedIn>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

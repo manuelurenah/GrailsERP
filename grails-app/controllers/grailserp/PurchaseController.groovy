@@ -35,4 +35,16 @@ class PurchaseController {
         redirect controller: 'home', action: 'index'
     }
 
+    def list = {
+        User current = User.get(springSecurityService.currentUser.id)
+        def purchases = null
+        if (current.isAdmin) {
+            purchases = Purchase.list()
+        } else {
+            purchases = Purchase.findAllByUser(current)
+        }
+
+        [purchaseList: purchases]
+    }
+
 }
