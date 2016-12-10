@@ -10,6 +10,7 @@
                 <h2>Your cart is empty. <br>Feel free to add some new products!</h2>
             </div>
         </g:if>
+
         <g:else>
             <g:if test="${params.cancelled}">
                 <div class="row">

@@ -9,5 +9,6 @@ class Cart {
     static belongsTo = [user: User, product: Product]
     static constraints = {
         quantity blank:false
+
     }
 }
