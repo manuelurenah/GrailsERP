@@ -18,9 +18,8 @@
         <g:else>
             <gvisualization:barCoreChart dynamicLoading="${true}"
                                          elementId="piechart"
-                                         title="Orders Overview"
-                                         width="${450}" height="${300}"
-                
+                                         title="Today's Orders Overview"
+                                         width="${'100%'}" height="${300}"
                                          columns="${myDailyActivitiesColumns}"
                                          data="${myDailyActivitiesData}" />
 
