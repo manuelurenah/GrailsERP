@@ -9,6 +9,11 @@ class Purchase {
     boolean isProcessed= false // Confirms order was processed.
     boolean emailSent = false// Email sent to guys.
     int notation = 0 //Will work as fiscal proof.
+    String address
+    String city
+    String state
+    String zip
+
     BigDecimal total
     String txnId
 

@@ -1,5 +1,7 @@
 package grailserp
 
+import org.apache.commons.beanutils.converters.BigDecimalConverter
+
 import static org.springframework.http.HttpStatus.*
 
 class PurchaseController {
@@ -13,7 +15,19 @@ class PurchaseController {
 
     def save_purchase = {
         def user = User.get(springSecurityService.currentUser.id)
-        def purchase = new Purchase(txnId: params.txn_id, user:user, total: params.payment_gross)
+        println "---------------------- TEST --------------------"
+        def total = new BigDecimal(params.payment_gross)
+        println total
+        println params.txn_id
+        def purchase = new Purchase(
+                txnId: params.txn_id,
+                user:user,
+                total: total,
+                address: params.address_street,
+                city: params.address_city,
+                zip: params.address_zip,
+                state: params.address_state
+        )
         purchase.save(failOnError: true, flush: true)
 
         user.purchases.add(purchase)
