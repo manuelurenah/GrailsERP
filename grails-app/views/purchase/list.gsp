@@ -14,9 +14,9 @@
                     </g:if>
                     <g:if test="${purchaseList && purchaseList.size() > 0}">
                         <exa:datatable id="purchasetable" items="${purchaseList}"
-                                       reorder="id,user,total,dateCreated,isVerified,invoice"
-                                        add="invoice"
-                                       hidden="txnId,notation,lastUpdated,belongsTo,isProcessed,emailSent,products,hasMany,address,city,zip,state" >
+                                       add="invoice"
+                                       hidden="txnId,notation,lastUpdated,belongsTo,isProcessed,emailSent,products,hasMany,address,city,zip,state"
+                                       reorder="id,user,total,dateCreated,isVerified,invoice">
                             <exa:customHeader name="id" value="Identifier"/>
                             <exa:customHeader name="invoice" value="Invoice"/>
                             <exa:customHeader name="user" value="Client"/>
@@ -28,23 +28,24 @@
                                 ${it.user}
                             </exa:customColumn>
                             <exa:customColumn name="invoice">
-                                <a      class="btn btn-success"
-                                        href="${g.createLink(controller:"reports", action:"generate_invoice", id:it.id)}">
+                                <a class="btn btn-success"
+                                   href="${g.createLink(controller:"reports", action:"generate_invoice", id:it.id)}">
                                     Download Invoice
                                 </a>
                             </exa:customColumn>
-                            <exa:customColumn name="isVerified">
-                                <g:if test="${it.isVerified}">
-                                    <button class="btn center-block btn-primary" disabled>Order Received</button>
-                                </g:if>
-                                <g:else>
-                                    <a      class="btn btn-success center-block"
-                                            href="${g.createLink(controller:"purchase", action:"receive", id:it.id)}">
-                                        Mark as Received.
-                                    </a>
-                                </g:else>
-                            </exa:customColumn>
-
+                            <sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SALES,ROLE_SUPPLY">
+                                <exa:customColumn name="isVerified">
+                                    <g:if test="${it.isVerified}">
+                                        <button class="btn center-block btn-primary" disabled>Order Received</button>
+                                    </g:if>
+                                    <g:else>
+                                        <a class="btn btn-success center-block"
+                                           href="${g.createLink(controller:"purchase", action:"receive", id:it.id)}">
+                                            Mark as Received
+                                        </a>
+                                    </g:else>
+                                </exa:customColumn>
+                            </sec:ifAnyGranted>
                         </exa:datatable>
                     </g:if>
                     <g:else>

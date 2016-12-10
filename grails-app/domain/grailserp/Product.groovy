@@ -6,7 +6,7 @@ class Product {
     String imageType
     String title
     String description
-    BigDecimal price
+    double price
     Integer quantity
 
     Date dateCreated

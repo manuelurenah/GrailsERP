@@ -21,16 +21,19 @@
                 </ul>
             </g:hasErrors>
             <g:form action="save">
-                <div class="form-group">
-                    <label for="name">Name: </label>
-                    <input type="text" class="form-control" name="name" id="name" />
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Last Name: </label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" />
-                </div>
                 <fieldset>
-                    <legend> Address </legend>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="name">Name: </label>
+                        <input type="text" class="form-control" name="name" id="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name: </label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" />
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Address</legend>
                     <div class="form-group">
                         <label for="state">State: </label>
                         <input type="text" class="form-control" name="state" id="state" />
@@ -48,25 +51,32 @@
                         <input type="text" class="form-control" name="zip" id="zip" />
                     </div>
                 </fieldset>
-                <div class="form-group">
-                    <label for="email">E-mail: </label>
-                    <input type="email" class="form-control" name="email" id="email" />
-                </div>
-                <div class="form-group">
-                    <label for="userType">User Type: </label>
-                    <select class="form-control" name="userType" id="userType">
-                        <option>Jurídico</option>
-                        <option selected>Consumidor Final</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="department">Department: </label>
-                    <g:select class="form-control"
-                              name="department"
-                              from="${Department.list()}"
-                              optionKey="id"
-                              value="" />
-                </div>
+                <fieldset>
+                    <legend>General Information</legend>
+                    <div class="form-group">
+                        <label for="email">E-mail: </label>
+                        <input type="email" class="form-control" name="email" id="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input type="password" class="form-control" name="password" id="password" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="userType">User Type: </label>
+                        <select class="form-control" name="userType" id="userType">
+                            <option>Jurídico</option>
+                            <option selected>Consumidor Final</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="department">Department: </label>
+                        <g:select class="form-control"
+                                  name="department"
+                                  from="${Department.list()}"
+                                  optionKey="id"
+                                  value="" />
+                    </div>
+                </fieldset>
                 <div class="col-xs-6">
                     <g:submitButton name="create" class="btn btn-block btn-success" value="Save" />
                 </div>

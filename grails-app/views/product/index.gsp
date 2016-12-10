@@ -21,7 +21,7 @@
                     </g:if>
                     <g:if test="${productList && productList.size() > 0}">
                         <exa:datatable id="productTable" items="${productList}"
-                                       hidden="dateCreated,description,lastUpdated,productImage,imageType"
+                                       hidden="dateCreated,description,lastUpdated,productImage,imageType,hasMany,purchases"
                                        reorder="id,title,price,quantity">
                             <exa:customHeader name="id" value="Identifier"/>
                             <exa:customHeader name="title" value="Title"/>

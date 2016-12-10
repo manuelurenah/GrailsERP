@@ -2,6 +2,7 @@ package grailserp
 
 import grails.converters.JSON
 import org.springframework.security.access.annotation.Secured
+import org.springframework.validation.BindingResult
 import org.springframework.web.multipart.MultipartFile
 
 import static org.springframework.http.HttpStatus.*
@@ -9,8 +10,8 @@ import static org.springframework.http.HttpStatus.*
 class ProductController {
 
     def index = {
-        List<Product> products = Product.list(params)
-        [productList: products?:[], productCount: Product.count()?:0]
+        List<Product> products = Product.findAllByQuantityGreaterThan(0)
+        [productList: products?:[]]
     }
 
     def render_image = {
@@ -79,7 +80,7 @@ class ProductController {
             return
         }
 
-        product.properties = params
+        product.properties = params as BindingResult
         product.save(failOnError: true, flush: true)
 
         request.withFormat {
