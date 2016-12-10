@@ -1,5 +1,7 @@
 package grailserp
 
+import org.springframework.security.core.context.SecurityContextHolder
+
 import static org.springframework.http.HttpStatus.*
 
 class UserController {
@@ -27,6 +29,7 @@ class UserController {
     }
 
     def logout() {
+        SecurityContextHolder.clearContext()
         session.currentUser = null
         redirect uri: "/"
     }
@@ -49,6 +52,14 @@ class UserController {
         }
 
         user.save(failOnError: true, flush: true)
+
+        def userRole = Role.findByAuthority('ROLE_USER')
+        user.addRole(userRole)
+
+        if (params.isAdmin) {
+            def adminRole = Role.findByAuthority('ROLE_ADMIN')
+            user.addRole(adminRole)
+        }
 
         request.withFormat {
             form multipartForm {

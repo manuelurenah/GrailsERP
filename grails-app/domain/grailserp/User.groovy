@@ -13,7 +13,7 @@ class User implements Serializable {
     String email
     String password
     String userType
-    Boolean isAdmin
+    boolean isAdmin = false
     boolean enabled = true
     boolean accountExpired
     boolean accountLocked
@@ -35,7 +35,6 @@ class User implements Serializable {
         email email: true, blank: false, unique: true
         password blank: false, display: false
         userType nullable: true
-        isAdmin nullable: true
         purchases display: false
         carts display: false
         enabled display: false

@@ -72,8 +72,7 @@
                     <label>
                         <g:checkBox class="checkbox"
                                     name="isAdmin"
-                                    optionKey="id"
-                                    value="" /> Administrador
+                                    value="${true}" /> Administrador
                     </label>
                 </div>
                 <div class="col-xs-6">
