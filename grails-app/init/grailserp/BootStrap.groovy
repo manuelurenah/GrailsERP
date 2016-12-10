@@ -19,6 +19,26 @@ class BootStrap {
         roles.each {
             def r = new Role(authority: it)
             r.save()
+            switch (it) {
+                case "ROLE_USER":
+                    genericDept.role = r
+                    genericDept.save()
+                    break
+                case "ROLE_ADMIN":
+                    adminDept.role = r
+                    genericDept.save()
+                    break
+                case "ROLE_SUPPLY":
+                    warehouseDept.role = r
+                    warehouseDept.save()
+                    break
+                case "ROLE_SALES":
+                    salesDept.role = r
+                    salesDept.save()
+                    break
+                default:
+                    break
+            }
             admin.addRole(r)
         }
     }

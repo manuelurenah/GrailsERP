@@ -19,11 +19,14 @@
                     <g:if test="${flash.message}">
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
-                    <f:table collection="${departmentList}" />
-
-                    <div class="pagination">
-                        <g:paginate total="${departmentCount ?: 0}" />
-                    </div>
+                    <exa:datatable include="title" id="depts" items="${departmentList}">
+                        <exa:customHeader name="title" value="Title"/>
+                        <exa:customColumn name="title">
+                            <a href="${g.createLink(controller:'department', action:"show", id:it.id)}">
+                                ${it.title}
+                            </a>
+                        </exa:customColumn>
+                    </exa:datatable>
                 </div>
             </div>
         </div>

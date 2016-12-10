@@ -22,7 +22,7 @@ class User implements Serializable {
     Date dateCreated
     Date lastUpdated
 
-    static hasOne = [department: Department]
+    static belongsTo = [department: Department]
     static hasMany = [carts: Cart, purchases: Purchase]
 
     static constraints = {

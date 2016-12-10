@@ -10,6 +10,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource
 import net.sf.jasperreports.engine.export.JRPdfExporter
 import org.apache.commons.beanutils.converters.BigDecimalConverter
 import org.apache.commons.io.output.ByteArrayOutputStream
+import org.springframework.security.access.annotation.Secured
 
 import static org.springframework.http.HttpStatus.*
 
@@ -90,6 +91,7 @@ class PurchaseController {
         user.purchases.add(purchase)
         user.save(failOnError: true, flush: true)
         purchase.products = []
+        def products = []
         user.carts.each { cart ->
             // let's add this to purchases:
             def pp = new PurchaseProduct(
@@ -98,10 +100,10 @@ class PurchaseController {
                     quantity: cart.quantity,
                     purchase: purchase)
             pp.save(failOnError: true, flush: true)
-            purchase.products.add(pp)
+            products.add(pp)
+//            purchase.products.add(pp)
         }
-        purchase.save()
-        println purchase.products
+
         user.carts.each{
             user.carts.remove(it)
             it.delete();
@@ -126,7 +128,7 @@ class PurchaseController {
         }
 
 
-        [purchase: purchase, user: user]
+        [purchase: purchase, products: products, user: user]
 
     }
 
@@ -140,6 +142,20 @@ class PurchaseController {
         }
 
         [purchaseList: purchases]
+    }
+
+    @Secured(['ROLE_ADMIN'])
+    def show() {
+        def purchase = Purchase.findById(params.id)
+
+        [purchase: purchase]
+    }
+
+    @Secured(['ROLE_USER'])
+    def receive() {
+        def purchase = Purchase.findById(params.id)
+        purchase.isVerified = true
+        redirect controller: "purchase", action: "list"
     }
 
 }

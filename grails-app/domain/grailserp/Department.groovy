@@ -7,11 +7,12 @@ class Department {
     Date dateCreated
     Date lastUpdated
 
-    static belongsTo = [User]
+    static belongsTo = [role: Role]
     static hasMany = [users: User]
 
     static constraints = {
         title blank: false, unique: true
+        role nullable: true, blank: true
     }
 
     static mapping = {

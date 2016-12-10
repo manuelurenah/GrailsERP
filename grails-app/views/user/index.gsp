@@ -20,7 +20,7 @@
                         <div class="message" role="status">${flash.message}</div>
                     </g:if>
                     <exa:datatable id="usertable" items="${userList}"
-                                   hidden="springSecurityService,password,purchases,carts,dateCreated,hasMany,hasOne,id,lastUpdated,mapping,enabled,accountExpired,accountLocked,passwordExpired" >
+                                   hidden="springSecurityService,password,purchases,carts,dateCreated,hasMany,belongsTo,id,lastUpdated,mapping,enabled,accountExpired,accountLocked,passwordExpired" >
                         <exa:customHeader name="name" value="Name"/>
                         <exa:customHeader name="lastname" value="Last Name"/>
                         <exa:customHeader name="state" value="State"/>

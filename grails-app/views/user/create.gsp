@@ -29,35 +29,34 @@
                     <label for="lastname">Last Name: </label>
                     <input type="text" class="form-control" name="lastname" id="lastname" />
                 </div>
-                <div class="form-group">
-                    <label for="state">State: </label>
-                    <input type="text" class="form-control" name="state" id="state" />
-                </div>
-                <div class="form-group">
-                    <label for="city">City: </label>
-                    <input type="text" class="form-control" name="city" id="city" />
-                </div>
-                <div class="form-group">
-                    <label for="address">Address: </label>
-                    <input type="text" class="form-control" name="address" id="address" />
-                </div>
-                <div class="form-group">
-                    <label for="zip">Zip: </label>
-                    <input type="text" class="form-control" name="zip" id="zip" />
-                </div>
+                <fieldset>
+                    <legend> Address </legend>
+                    <div class="form-group">
+                        <label for="state">State: </label>
+                        <input type="text" class="form-control" name="state" id="state" />
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City: </label>
+                        <input type="text" class="form-control" name="city" id="city" />
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <input type="text" class="form-control" name="address" id="address" />
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">Zip: </label>
+                        <input type="text" class="form-control" name="zip" id="zip" />
+                    </div>
+                </fieldset>
                 <div class="form-group">
                     <label for="email">E-mail: </label>
                     <input type="email" class="form-control" name="email" id="email" />
                 </div>
                 <div class="form-group">
-                    <label for="password">Password: </label>
-                    <input type="password" class="form-control" name="password" id="password" />
-                </div>
-                <div class="form-group">
                     <label for="userType">User Type: </label>
                     <select class="form-control" name="userType" id="userType">
                         <option>Jurídico</option>
-                        <option>Consumidor Final</option>
+                        <option selected>Consumidor Final</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -67,13 +66,6 @@
                               from="${Department.list()}"
                               optionKey="id"
                               value="" />
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <g:checkBox class="checkbox"
-                                    name="isAdmin"
-                                    value="${true}" /> Administrador
-                    </label>
                 </div>
                 <div class="col-xs-6">
                     <g:submitButton name="create" class="btn btn-block btn-success" value="Save" />

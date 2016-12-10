@@ -1,5 +1,6 @@
 package grailserp
 
+import org.apache.commons.lang.RandomStringUtils
 import org.springframework.security.core.context.SecurityContextHolder
 
 import static org.springframework.http.HttpStatus.*
@@ -37,6 +38,7 @@ class UserController {
     def create = {}
 
     def save = {
+        params.password = RandomStringUtils.random(8)
         User user = new User(params)
 
         if (user == null) {
@@ -52,13 +54,14 @@ class UserController {
         }
 
         user.save(failOnError: true, flush: true)
+        user.addRole(user.department.role)
+        // Send mail to user:
 
-        def userRole = Role.findByAuthority('ROLE_USER')
-        user.addRole(userRole)
-
-        if (params.isAdmin) {
-            def adminRole = Role.findByAuthority('ROLE_ADMIN')
-            user.addRole(adminRole)
+        sendMail {
+            subject "Account info"
+            text "Your account has been created. Please access with: " + params.password
+            to params.email
+            from "grailserp@gmail.com"
         }
 
         request.withFormat {
