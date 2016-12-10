@@ -140,7 +140,8 @@ class PurchaseController {
     def list = {
         User current = User.get(springSecurityService.currentUser.id)
         def purchases = null
-        if (current.isAdmin) {
+        if (current.department.title == 'Administración' ||
+                current.department.title == 'Almacén' || current.department.title == 'Ventas') {
             purchases = Purchase.list()
         } else {
             purchases = Purchase.findAllByUser(current)

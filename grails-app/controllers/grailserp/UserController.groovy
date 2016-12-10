@@ -95,6 +95,7 @@ class UserController {
 
         user.properties = params
         user.save(failOnError: true, flush: true)
+        user.addRole(user.department.role)
 
         request.withFormat {
             form multipartForm {
