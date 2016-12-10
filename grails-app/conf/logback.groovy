@@ -19,6 +19,9 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     }
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
     root(ERROR, ['STDOUT', 'FULL_STACKTRACE'])
+    logger("org.springframework.security", DEBUG, ['STDOUT'], false)
+    logger("grails.plugin.springsecurity", DEBUG, ['STDOUT'], false)
+    logger("org.pac4j", DEBUG, ['STDOUT'], false)
 }
 else {
     root(ERROR, ['STDOUT'])

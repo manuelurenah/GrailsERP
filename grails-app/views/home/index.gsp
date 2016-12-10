@@ -7,7 +7,7 @@
         </div>
     </content>
     <content tag="body">
-        <h1 class="text-center">Featured Products</h1>
+        <h1 class="text-center">Our Products</h1>
         <hr>
 
         <g:if test="${products || products.size() > 0}">

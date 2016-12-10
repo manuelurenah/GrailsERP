@@ -13,4 +13,11 @@ class AdminController {
          myDailyActivitiesData: myDailyActivitiesData,
          purchases: purchases]
     }
+
+    // Used for the mobile app.
+    @Secured(['ROLE_ADMIN'])
+    def datatable(){
+        def purchases = Purchase.list()
+        [purchases: purchases]
+    }
 }
