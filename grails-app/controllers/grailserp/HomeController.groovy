@@ -21,8 +21,7 @@ class HomeController {
 
     @Secured(['ROLE_USER','ROLE_ADMIN','ROLE_SALES','ROLE_SUPPLY'])
     def index() {
-        List<Product> productList = Product.list()
-        [products: productList]
+        [products: Product.list()]
     }
 
 }

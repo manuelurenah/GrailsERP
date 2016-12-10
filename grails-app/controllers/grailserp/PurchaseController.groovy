@@ -73,7 +73,14 @@ class PurchaseController {
 
 
     def save_purchase = {
+        def exist = Purchase.findByTxnId(params.txn_id)
         def user = User.get(springSecurityService.currentUser.id)
+
+        if(exist) {
+            println '----------------- EXISTS!! ------------------'
+            return [purchase: exist, products:  exist.products, user: user]
+        }
+
         println "---------------------- TEST --------------------"
         def total = new BigDecimal(params.payment_gross)
         println total
@@ -88,12 +95,7 @@ class PurchaseController {
                 state: params.address_state
         )
         purchase.save(failOnError: true, flush: true)
-        purchase = Purchase.findById(purchase.id)
-
-        user.purchases.add(purchase)
-        user.save(failOnError: true, flush: true)
         purchase.products = []
-        def products = []
         user.carts.each { cart ->
             // let's add this to purchases:
             def pp = new PurchaseProduct(
@@ -102,17 +104,18 @@ class PurchaseController {
                     quantity: cart.quantity,
                     purchase: purchase)
             pp.save(failOnError: true, flush: true)
-            products.add(pp)
             purchase.products.add(pp)
         }
-        purchase.save(flush:true)
+        purchase.refresh()
+//        purchase.save(flush:true)
         def items = user.carts
         user.carts = null
         items.each {
             it.delete(flush:true)
         }
 
-        user.save(flush: true)
+        user.refresh()
+
 
         // EMAIL SUPPLIERS:
         def sendTo = []
@@ -132,8 +135,7 @@ class PurchaseController {
             attach "dispatch.pdf", "application/pdf", this.generate_dispatch_report(purchase).toByteArray()
         }
 
-
-        [purchase: purchase, products: purchase.products, user: user]
+        [purchase: purchase, products:  purchase.products, user: user]
 
     }
 
